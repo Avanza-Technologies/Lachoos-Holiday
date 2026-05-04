@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --primary-green: #082516;
+  --primary-green-light: #123824;
+  --gold: #DFA931;
+  --gold-hover: #C59325;
+  --text-light: #F8F9FA;
+  --text-dark: #333333;
+  --text-muted: #888888;
+  --bg-light: #F5F5F5;
+  --white: #FFFFFF;
+
+  --font-serif: 'Playfair Display', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Typography utilities */
+.text-gold { color: var(--gold); }
+.text-white { color: var(--white); }
+.text-green { color: var(--primary-green); }
+
+.bg-green { background-color: var(--primary-green); }
+.bg-light { background-color: var(--bg-light); }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  border-radius: 4px;
+}
+
+.btn-gold {
+  background-color: var(--gold);
+  color: var(--primary-green);
+}
+
+.btn-gold:hover {
+  background-color: var(--gold-hover);
+}
+
+.btn-outline-gold {
+  background-color: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: var(--gold);
+  color: var(--primary-green);
+}
+
+.btn-green {
+  background-color: var(--primary-green);
+  color: var(--white);
+}
+
+.btn-green:hover {
+  background-color: var(--primary-green-light);
+}
+
+/* Sections */
+.section-padding {
+  padding: 6rem 0;
+}
+
+.section-label {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}

@@ -1,0 +1,65 @@
+.expert-contact-section {
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.expert-container {
+  display: flex;
+  justify-content: center;
+}
+
+.expert-card {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  max-width: 450px;
+  position: relative;
+  /* If it needs to overlap, we can use negative margin */
+  /* margin-top: -5rem; */
+  /* z-index: 10; */
+}
+
+.expert-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--bg-light);
+}
+
+.expert-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.expert-name {
+  font-size: 1.4rem;
+  color: var(--primary-green);
+  margin-bottom: 0.3rem;
+}
+
+.expert-title {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  margin-bottom: 1.5rem;
+}
+
+.expert-quote {
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  font-style: italic;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.expert-btn {
+  width: 100%;
+  padding: 1rem;
+}

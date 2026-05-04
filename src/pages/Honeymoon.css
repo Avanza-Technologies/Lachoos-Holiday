@@ -1,0 +1,115 @@
+.honeymoon-hero {
+  height: 60vh;
+  min-height: 500px;
+  background: url('https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  position: relative;
+}
+
+.honeymoon-hero .hero-overlay {
+  background: linear-gradient(to right, rgba(8, 37, 22, 0.8) 0%, rgba(8, 37, 22, 0.2) 100%);
+}
+
+.honeymoon-hero .container {
+  position: relative;
+  z-index: 10;
+}
+
+.honeymoon-hero .hero-title {
+  font-size: 3.5rem;
+  margin: 1rem 0;
+}
+
+.honeymoon-hero .hero-subtitle {
+  max-width: 600px;
+  margin-bottom: 2rem;
+  font-family: var(--font-sans);
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.package-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.package-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.package-content {
+  padding: 2rem;
+}
+
+.package-content .tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.package-content h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--primary-green);
+}
+
+.package-footer {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.package-footer span {
+  font-weight: 700;
+  color: var(--primary-green);
+}
+
+.btn-link {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.philosophy-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.philosophy-image img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.phil-item {
+  margin-top: 2rem;
+}
+
+.phil-item h4 {
+  font-family: var(--font-sans);
+  color: var(--primary-green);
+  margin-bottom: 0.5rem;
+}
