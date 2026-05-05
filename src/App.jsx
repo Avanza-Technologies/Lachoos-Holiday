@@ -9,8 +9,9 @@ import Fleet from './pages/Fleet';
 import './index.css';
 
 function App() {
+  const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || undefined;
   return (
-    <Router>
+    <Router basename={basename}>
       <div className="app">
         <Navbar />
         <main>
