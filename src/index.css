@@ -78,6 +78,9 @@ ul {
 .text-gold { color: var(--gold); }
 .text-white { color: var(--white); }
 .text-green { color: var(--primary-green); }
+.text-center {
+  text-align: center;
+}
 
 .bg-green { background-color: var(--primary-green); }
 .bg-light { background-color: var(--bg-light); }

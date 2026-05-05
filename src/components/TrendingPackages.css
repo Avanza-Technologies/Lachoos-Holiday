@@ -1,20 +1,67 @@
-.flex { display: flex; }
-.justify-between { justify-content: space-between; }
-.items-end { align-items: flex-end; }
-.mb-12 { margin-bottom: 3rem; }
+.flex {
+  display: flex;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.items-end {
+  align-items: flex-end;
+}
+.mb-12 {
+  margin-bottom: 3rem;
+}
+
+.trending-header {
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+}
+
+.trending-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem 1rem;
+}
 
 .view-all-btn {
-  background: none;
-  border: none;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  color: var(--text-muted);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
   cursor: pointer;
+  padding: 0.55rem 0;
+  border: none;
+  background: none;
   border-bottom: 2px solid var(--gold);
-  padding-bottom: 0.3rem;
-  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.view-all-btn--toggle {
+  color: var(--primary-green);
+}
+
+.view-all-btn--toggle:hover {
+  color: var(--gold-hover);
+}
+
+.view-all-btn--wa {
+  color: var(--white);
+  background: var(--primary-green);
+  border: none;
+  border-radius: 4px;
+  padding: 0.65rem 1rem;
+  border-bottom: none;
+  box-shadow: 0 2px 8px rgba(8, 37, 22, 0.15);
+}
+
+.view-all-btn--wa:hover {
+  background: var(--primary-green-light);
+  color: var(--white);
 }
 
 .pkg-card {
@@ -120,17 +167,27 @@
 }
 
 @media (max-width: 768px) {
-  .trending-section .flex {
+  .trending-header {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
-  .trending-section .mb-12 {
+  .trending-header.mb-12 {
     margin-bottom: 1.5rem;
   }
 
-  .view-all-btn {
-    align-self: flex-start;
+  .trending-header-actions {
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-all-btn--toggle,
+  .view-all-btn--wa {
+    justify-content: center;
+    width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 }
 
