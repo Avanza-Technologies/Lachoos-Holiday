@@ -1,49 +1,98 @@
-.testimonials-section {
+/* ===== Testimonials ===== */
+
+.tst-section {
   position: relative;
+  background: var(--primary-green);
+  padding: 8rem 0;
+  overflow: hidden;
 }
 
-.testimonials-grid {
+.tst-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/packages/honeymoon-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.tst-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.tst-header {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.tst-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tst-heading {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--white);
+  line-height: 1.1;
+}
+
+.tst-grid {
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(min(100%, 280px), 1fr)
-  );
-  gap: clamp(1.5rem, 4vw, 3rem);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.test-card {
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  transition: all 0.3s ease;
+.tst-card {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: background 0.4s ease;
 }
 
-.test-card:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: var(--gold);
+.tst-card:hover {
+  background: rgba(255,255,255,0.1);
 }
 
-.quote-icon {
-  margin-bottom: 1.5rem;
-  opacity: 0.5;
+.tst-quote-icon {
+  color: var(--gold);
+  opacity: 0.8;
 }
 
-.test-text {
-  font-family: var(--font-sans);
-  font-size: 1.1rem;
-  font-style: italic;
+.tst-text {
+  font-size: 1rem;
   line-height: 1.8;
-  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.85);
+  margin: 0;
+  flex: 1;
+  font-style: italic;
 }
 
-.test-user {
+.tst-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--gold);
+}
+
+.tst-user {
   display: flex;
   align-items: center;
-  gap: 1.2rem;
+  gap: 1rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
 }
 
-.test-user img {
+.tst-avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -51,25 +100,20 @@
   border: 2px solid var(--gold);
 }
 
-.test-info h4 {
-  font-family: var(--font-sans);
+.tst-name {
+  display: block;
   font-size: 1rem;
+  color: var(--white);
+  font-weight: 700;
   margin-bottom: 0.2rem;
 }
 
-.test-info p {
+.tst-location {
   font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.05em;
 }
 
-@media (max-width: 992px) {
-  .testimonials-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .test-text {
-    font-size: 1rem;
-  }
+@media (max-width: 900px) {
+  .tst-grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; }
 }
