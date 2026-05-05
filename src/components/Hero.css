@@ -1,7 +1,8 @@
 .hero-section {
   position: relative;
-  height: 100vh;
-  min-height: 800px;
+  min-height: 100svh;
+  min-height: 100dvh;
+  padding: clamp(5.5rem, 12vw, 8rem) 0 clamp(2rem, 6vw, 4rem);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,17 +46,30 @@
 }
 
 .hero-title {
-  font-size: 5rem;
+  font-size: clamp(2rem, 9vw, 5rem);
   line-height: 1.1;
-  margin-bottom: 2rem;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  max-width: min(22ch, 100%);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 520px) {
+  .hero-title .hero-br {
+    display: none;
+  }
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
-  margin-bottom: 4rem;
+  font-size: clamp(0.95rem, 2.8vw, 1.25rem);
+  margin-bottom: clamp(1.5rem, 5vw, 4rem);
   opacity: 0.9;
   line-height: 1.6;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 0.25rem;
 }
 
 .search-bar {
@@ -65,6 +79,7 @@
   grid-template-columns: 1.5fr 1fr 1fr auto;
   padding: 0.5rem;
   max-width: 1000px;
+  width: 100%;
   margin: 0 auto;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
@@ -72,9 +87,10 @@
 .search-field {
   display: flex;
   align-items: center;
-  padding: 1.5rem 2rem;
+  padding: clamp(0.85rem, 3vw, 1.5rem) clamp(1rem, 3vw, 2rem);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
+  min-width: 0;
 }
 
 .search-field:last-of-type {
@@ -162,7 +178,24 @@
 
 /* Responsive */
 @media (max-width: 992px) {
-  .hero-title { font-size: 3.5rem; }
-  .search-bar { grid-template-columns: 1fr; }
-  .search-field { border-right: none; border-bottom: 1px solid rgba(0, 0, 0, 0.1); }
+  .search-bar {
+    grid-template-columns: 1fr;
+  }
+  .search-field {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  .search-bar .search-btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 3.25rem;
+    margin-top: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .search-input,
+  .search-select {
+    font-size: 16px;
+  }
 }

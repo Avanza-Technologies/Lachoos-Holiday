@@ -42,3 +42,14 @@
   color: var(--text-muted);
   line-height: 1.6;
 }
+
+@media (max-width: 576px) {
+  .reasons-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .reason-card {
+    padding: 2rem 1.5rem;
+  }
+}

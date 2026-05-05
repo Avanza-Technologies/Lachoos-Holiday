@@ -1,6 +1,7 @@
 .honeymoon-hero {
   height: 60vh;
   min-height: 500px;
+  padding-top: max(4.5rem, env(safe-area-inset-top));
   background: url('https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=1500&q=80') center/cover no-repeat;
   display: flex;
   align-items: center;
@@ -112,4 +113,41 @@
   font-family: var(--font-sans);
   color: var(--primary-green);
   margin-bottom: 0.5rem;
+}
+
+@media (max-width: 992px) {
+  .honeymoon-hero {
+    min-height: 380px;
+    height: auto;
+    padding: clamp(6rem, 18vw, 8rem) 0 clamp(2.5rem, 8vw, 4rem);
+  }
+
+  .honeymoon-hero .hero-title {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+  }
+
+  .packages-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .philosophy-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .package-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .package-content h3 {
+    font-size: clamp(1.35rem, 4vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .package-card img {
+    height: 220px;
+  }
 }

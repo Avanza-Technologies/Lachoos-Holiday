@@ -77,3 +77,26 @@
   font-style: italic;
   color: var(--gold);
 }
+
+@media (max-width: 992px) {
+  .saba-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .saba-image-col {
+    min-height: 280px;
+    max-height: 420px;
+    order: -1;
+  }
+
+  .saba-content-col {
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .saba-feature {
+    gap: 1rem;
+  }
+}

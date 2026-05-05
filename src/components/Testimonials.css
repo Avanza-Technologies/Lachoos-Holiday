@@ -4,8 +4,11 @@
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, 280px), 1fr)
+  );
+  gap: clamp(1.5rem, 4vw, 3rem);
 }
 
 .test-card {
@@ -58,4 +61,15 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .test-text {
+    font-size: 1rem;
+  }
 }

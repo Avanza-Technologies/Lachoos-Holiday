@@ -94,3 +94,22 @@
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.4);
 }
+
+@media (max-width: 992px) {
+  .footer-section {
+    padding: clamp(3rem, 8vw, 5rem) 0 2rem;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-bottom p {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    padding: 0 0.5rem;
+  }
+}

@@ -135,3 +135,66 @@
   padding: 0.8rem 2rem;
   font-size: 0.8rem;
 }
+
+@media (max-width: 992px) {
+  .destinations-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .dest-action {
+    width: 100%;
+  }
+
+  .view-all-link {
+    display: inline-block;
+  }
+
+  .dest-grid {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: unset;
+    grid-template-rows: unset;
+    gap: 1.25rem;
+  }
+
+  .dest-card-main,
+  .dest-card-side,
+  .dest-card-wide {
+    grid-column: auto;
+    grid-row: auto;
+    min-height: 240px;
+    max-height: none;
+  }
+
+  .dest-card-content {
+    padding: clamp(1.25rem, 4vw, 2.5rem);
+  }
+
+  .dest-card-title {
+    font-size: clamp(1.35rem, 4vw, 2rem);
+  }
+
+  .dest-card-side .dest-card-title {
+    font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+  }
+
+  .dest-card-desc {
+    max-width: 100%;
+  }
+
+  .dest-card-wide .dest-card-desc {
+    max-width: 100%;
+  }
+
+  .dest-tags {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .dest-card {
+    min-height: 200px;
+  }
+}

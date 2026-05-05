@@ -46,12 +46,14 @@ Can you provide more details?`;
       
       <div className="hero-content">
         <h1 className="hero-title">
-          Where Emerald<br />
-          Waters<br />
+          Where Emerald
+          <br className="hero-br" />
+          Waters
+          <br className="hero-br" />
           Meet the Malabar Sun
         </h1>
         <p className="hero-subtitle">
-          Experience Kerala with personalized luxury. From the backwaters to the high<br />
+          Experience Kerala with personalized luxury. From the backwaters to the high
           ranges, curated by experts.
         </p>
 
