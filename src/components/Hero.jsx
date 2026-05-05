@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { MapPin, Calendar, Users, ArrowRight, Search } from 'lucide-react';
 import './Hero.css';
 
-const heroImg = "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1500&q=80"; // Bright Alleppey Backwaters with Houseboats
+const heroImg = "/images/packages/hero-bg.jpg"; // Bright Alleppey Backwaters with Houseboats
 
 const Hero = () => {
   const [destination, setDestination] = useState('');

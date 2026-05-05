@@ -18,7 +18,7 @@ const Destinations = () => {
         <div className="dest-grid">
           {/* Alleppey */}
           <div className="dest-card dest-card-main">
-            <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=80" alt="Alleppey Backwaters" className="dest-img" />
+            <img src="/images/packages/kumarakom.jpg" alt="Alleppey Backwaters" className="dest-img" />
             <div className="dest-overlay-gradient"></div>
             <div className="dest-card-content">
               <div className="dest-tags">
@@ -32,7 +32,7 @@ const Destinations = () => {
 
           {/* Munnar */}
           <div className="dest-card dest-card-side">
-            <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=800&q=80" alt="Munnar Tea Estates" className="dest-img" />
+            <img src="/images/packages/munnar-alleppey.jpg" alt="Munnar Tea Estates" className="dest-img" />
             <div className="dest-overlay-gradient"></div>
             <div className="dest-card-content">
               <div className="dest-tags">
@@ -45,7 +45,7 @@ const Destinations = () => {
 
           {/* Wayanad */}
           <div className="dest-card dest-card-wide">
-            <img src="https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=1200&q=80" alt="Wayanad Wilderness" className="dest-img" />
+            <img src="/images/packages/wayanad.jpg" alt="Wayanad Wilderness" className="dest-img" />
             <div className="dest-overlay-gradient"></div>
             <div className="dest-card-content">
               <div className="dest-tags">

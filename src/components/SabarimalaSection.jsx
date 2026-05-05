@@ -7,7 +7,7 @@ const SabarimalaSection = () => {
     <section className="sabarimala-section bg-green section-padding">
       <div className="container saba-container">
         <div className="saba-image-col">
-          <img src="https://img.mathrubhumi.com/view/acePublic/alias/contentid/1pxmeox4wlgoob3n9wb/0/sabarimala-jpg.webp?f=1x1&w=1080&q=0.8" alt="Sabarimala Temple" className="saba-img" />
+          <img src="/images/packages/sabarimala-main.jpg" alt="Sabarimala Temple" className="saba-img" />
         </div>
         
         <div className="saba-content-col">

@@ -18,7 +18,7 @@ const Honeymoon = () => {
         <div className="container">
           <div className="packages-grid">
             <div className="package-card">
-              <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?auto=format&fit=crop&w=800&q=80" alt="Heritage & Backwater Bliss" />
+              <img src="/images/packages/honeymoon-1.jpg" alt="Heritage & Backwater Bliss" />
               <div className="package-content">
                 <span className="tag">DIRECT LIAISON</span>
                 <h3>Heritage & Backwater Bliss</h3>
@@ -31,7 +31,7 @@ const Honeymoon = () => {
             </div>
 
             <div className="package-card">
-              <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=800&q=80" alt="Wilderness of Gavi" />
+              <img src="/images/packages/honeymoon-2.jpg" alt="Wilderness of Gavi" />
               <div className="package-content">
                 <span className="tag">ECO-LUXURY</span>
                 <h3>Wilderness of Gavi</h3>
@@ -49,7 +49,7 @@ const Honeymoon = () => {
       <section className="philosophy-section section-padding bg-light">
         <div className="container philosophy-container">
           <div className="philosophy-image">
-            <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=800&q=80" alt="Philosophy" />
+            <img src="/images/packages/honeymoon-3.jpg" alt="Philosophy" />
           </div>
           <div className="philosophy-content">
             <p className="section-label text-gold">OUR PHILOSOPHY</p>

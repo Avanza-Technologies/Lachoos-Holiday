@@ -35,7 +35,7 @@ const Fleet = () => {
             <h2 className="section-title">Our Premium Fleet</h2>
             
             <div className="vehicle-card">
-              <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=800&q=80" alt="Mercedes-Benz E-Class" />
+              <img src="/images/packages/fleet-1.jpg" alt="Mercedes-Benz E-Class" />
               <div className="vehicle-info">
                 <span className="expert-reviewed">EXPERT REVIEWED</span>
                 <h3>Mercedes-Benz E-Class</h3>
@@ -51,7 +51,7 @@ const Fleet = () => {
             </div>
 
             <div className="vehicle-card">
-              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=800&q=80" alt="Toyota Fortuner" />
+              <img src="/images/packages/fleet-2.jpg" alt="Toyota Fortuner" />
               <div className="vehicle-info">
                 <span className="direct-liaison">DIRECT LIAISON</span>
                 <h3>Toyota Fortuner</h3>

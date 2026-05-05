@@ -8,19 +8,19 @@ const Testimonials = () => {
       name: "Anjali Nair",
       location: "Bangalore",
       text: "Lachoos Holidays made our honeymoon truly magical. The houseboat experience in Alleppey was beyond words. Highly recommended!",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80"
+      image: "/images/packages/t1.jpg"
     },
     {
       name: "David Miller",
       location: "London",
       text: "The Sabarimala pilgrimage was so well-organized. As a first-timer, I felt safe and respected throughout the journey. Expert guidance indeed.",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80"
+      image: "/images/packages/t2.jpg"
     },
     {
       name: "Suresh Pillai",
       location: "Chennai",
       text: "Best vehicle fleet in Pathanamthitta. The driver was very professional and knew the forest routes perfectly. 5 stars!",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=100&q=80"
+      image: "/images/packages/t3.jpg"
     }
   ];
 

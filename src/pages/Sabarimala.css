@@ -2,7 +2,7 @@
   height: 70vh;
   min-height: 600px;
   padding-top: max(4.5rem, env(safe-area-inset-top));
-  background: url('https://img.mathrubhumi.com/view/acePublic/alias/contentid/1pxmeox4wlgoob3n9wb/0/sabarimala-jpg.webp?f=1x1&w=1080&q=0.8') center/cover no-repeat;
+  background: url('/images/packages/sabarimala-main.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   color: var(--white);

@@ -8,7 +8,7 @@ const ExpertContact = () => {
       <div className="container expert-container">
         <div className="expert-card">
           <div className="expert-avatar">
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Rajesh Pillai" />
+            <img src="/images/packages/expert.jpg" alt="Rajesh Pillai" />
           </div>
           <h3 className="expert-name">Rajesh Pillai</h3>
           <p className="expert-title">SENIOR TRAVEL SPECIALIST</p>

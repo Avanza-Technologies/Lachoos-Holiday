@@ -9,8 +9,7 @@ const PACKAGES = [
     location: 'Munnar, Alleppey',
     price: '₹18,500',
     rating: 4.9,
-    image:
-      'https://images.unsplash.com/photo-1545389336-cf090694435e?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/munnar-alleppey.jpg',
   },
   {
     title: 'Grand Wayanad Expedition',
@@ -18,8 +17,7 @@ const PACKAGES = [
     location: 'Wayanad',
     price: '₹15,200',
     rating: 4.8,
-    image:
-      'https://images.unsplash.com/photo-1516690561799-46d8f74f9abf?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/wayanad.jpg',
   },
   {
     title: 'Kochi Heritage & Athirappilly',
@@ -27,8 +25,7 @@ const PACKAGES = [
     location: 'Kochi, Athirappilly',
     price: '₹12,800',
     rating: 4.7,
-    image:
-      'https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/kochi-athirappilly.jpg',
   },
   {
     title: 'Kumarakom Backwaters & Houseboats',
@@ -36,8 +33,7 @@ const PACKAGES = [
     location: 'Kumarakom, Alleppey',
     price: '₹21,400',
     rating: 4.9,
-    image:
-      'https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/kumarakom.jpg',
   },
   {
     title: 'Thekkady Wildlife & Spice Route',
@@ -45,8 +41,7 @@ const PACKAGES = [
     location: 'Thekkady, Periyar',
     price: '₹16,900',
     rating: 4.8,
-    image:
-      'https://images.unsplash.com/photo-1596402184434-2b6fd7b5be9c?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/thekkady.jpg',
   },
   {
     title: 'Varkala Cliffs & Ayurveda',
@@ -54,8 +49,7 @@ const PACKAGES = [
     location: 'Varkala, Kovalam',
     price: '₹19,600',
     rating: 4.7,
-    image:
-      'https://images.unsplash.com/photo-1586610544317-0335e4ed08f7?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/varkala.jpg',
   },
   {
     title: 'Bekal & Nileshwaram Coastal Escape',
@@ -63,8 +57,7 @@ const PACKAGES = [
     location: 'Kasaragod, Bekal',
     price: '₹17,300',
     rating: 4.6,
-    image:
-      'https://images.unsplash.com/photo-1512343879784-a9606f2a0f31?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/bekal.jpg',
   },
   {
     title: 'Gavi Eco Trail & Jungle Camp',
@@ -72,8 +65,7 @@ const PACKAGES = [
     location: 'Pathanamthitta, Gavi',
     price: '₹14,500',
     rating: 4.8,
-    image:
-      'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/gavi.jpg',
   },
   {
     title: 'Sabarimala Pilgrim Comfort Circuit',
@@ -81,8 +73,7 @@ const PACKAGES = [
     location: 'Pathanamthitta, Pamba',
     price: '₹13,900',
     rating: 4.9,
-    image:
-      'https://images.unsplash.com/photo-1561361058-4ca6af2dee4e?auto=format&fit=crop&w=600&q=80',
+    image: '/images/packages/sabarimala.jpg',
   },
 ];
 
