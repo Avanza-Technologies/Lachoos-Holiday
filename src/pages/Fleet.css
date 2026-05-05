@@ -1,192 +1,523 @@
-.fleet-hero {
-  height: 60vh;
-  min-height: 500px;
-  padding-top: max(4.5rem, env(safe-area-inset-top));
-  background: url('/images/packages/fleet-bg.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  color: var(--white);
-  position: relative;
-}
+/* ===== Fleet Page — World-Class Design ===== */
 
-.fleet-hero .hero-overlay {
-  background: linear-gradient(to bottom, rgba(8, 37, 22, 0.4) 0%, rgba(8, 37, 22, 0.7) 100%);
-}
-
-.fleet-hero .container {
-  position: relative;
-  z-index: 10;
-  text-align: center;
-}
-
-.fleet-filter {
-  display: flex;
-  background: var(--white);
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  margin-top: 3rem;
-  gap: 1.5rem;
-  align-items: flex-end;
-  color: var(--text-dark);
-}
-
-.filter-item {
-  flex: 1;
-  text-align: left;
-}
-
-.filter-item label {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  margin-bottom: 0.5rem;
-}
-
-.filter-item input, .filter-item select {
-  width: 100%;
-  padding: 0.8rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-}
-
-.fleet-container {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 4rem;
-}
-
-.vehicle-card {
-  display: flex;
-  background: var(--white);
-  border-radius: 8px;
+.fl-page {
+  background-color: #faf9f6;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+/* Shared Typography */
+.fl-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--gold);
+}
+
+.fl-label.dark {
+  color: var(--primary-green);
+}
+
+.fl-heading {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  color: var(--primary-green);
+  line-height: 1.1;
   margin-bottom: 2rem;
 }
 
-.vehicle-card img {
-  width: 300px;
-  object-fit: cover;
-}
-
-.vehicle-info {
-  padding: 2.5rem;
-  flex: 1;
-}
-
-.expert-reviewed, .direct-liaison {
-  font-size: 0.6rem;
-  font-weight: 700;
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-  display: inline-block;
-}
-
-.expert-reviewed { background: #E3F2FD; color: #1565C0; }
-.direct-liaison { background: #FFF3E0; color: #E65100; }
-
-.vehicle-info h3 {
-  font-size: 1.6rem;
-  margin-bottom: 0.5rem;
-}
-
-.price {
-  font-weight: 700;
-  color: var(--primary-green);
-  margin-bottom: 1.5rem;
-}
-
-.specs {
+/* ===== Hero ===== */
+.fl-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 640px;
   display: flex;
-  gap: 1.5rem;
-  margin-bottom: 1.5rem;
-  font-size: 0.85rem;
-  color: var(--text-muted);
+  align-items: center;
+  overflow: hidden;
 }
 
-.vehicle-sidebar {
+.fl-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+}
+
+.fl-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(8,37,22,0.92) 0%, rgba(8,37,22,0.4) 100%);
+  z-index: 2;
+}
+
+.fl-hero-content {
+  position: relative;
+  z-index: 3;
+  padding-top: 80px;
+}
+
+.fl-hero-text {
+  max-width: 650px;
+  color: var(--white);
+}
+
+.fl-title {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: clamp(3rem, 7vw, 5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+}
+
+.fl-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.75;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.fl-hero-actions {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.fl-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.fl-btn-primary:hover {
+  background: var(--gold-hover, #b8960e);
+}
+
+.fl-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 1rem 2rem;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.fl-btn-outline:hover {
+  border-color: var(--white);
+  background: rgba(255,255,255,0.1);
+}
+
+/* ===== Filter Bar ===== */
+.fl-filter-bar {
+  background: var(--white);
+  box-shadow: 0 8px 40px rgba(8,37,22,0.08);
+  padding: 0;
+  position: relative;
+  z-index: 10;
+  margin-top: -2px;
+}
+
+.fl-filter {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 2rem 0;
+}
+
+.fl-filter-item {
+  flex: 1;
+  padding: 0 1.5rem;
+  border-right: 1px solid rgba(0,0,0,0.07);
+}
+
+.fl-filter-item:first-child {
+  padding-left: 0;
+}
+
+.fl-filter-item label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-muted, #888);
+  margin-bottom: 0.6rem;
+}
+
+.fl-filter-item input,
+.fl-filter-item select {
+  width: 100%;
+  padding: 0.75rem 0;
+  border: none;
+  border-bottom: 2px solid rgba(0,0,0,0.1);
+  background: transparent;
+  font-size: 1rem;
+  color: var(--primary-green);
+  font-family: var(--font-sans);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.fl-filter-item input:focus,
+.fl-filter-item select:focus {
+  border-bottom-color: var(--gold);
+}
+
+.fl-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary-green);
+  color: var(--white);
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-left: 1.5rem;
+  border-radius: 2px;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.fl-filter-btn:hover {
+  background: var(--primary-green-light, #145e36);
+}
+
+/* ===== Main Layout ===== */
+.fl-main {
+  background: #faf9f6;
+}
+
+.fl-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 4rem;
+  align-items: start;
+}
+
+/* ===== Vehicle Cards ===== */
+.fl-vehicle-card {
+  background: var(--white);
+  margin-bottom: 3rem;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(8,37,22,0.07);
+  transition: box-shadow 0.4s ease;
+}
+
+.fl-vehicle-card:hover {
+  box-shadow: 0 30px 80px rgba(8,37,22,0.12);
+}
+
+.fl-vehicle-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.fl-vehicle-img img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.fl-vehicle-card:hover .fl-vehicle-img img {
+  transform: scale(1.06);
+}
+
+.fl-vehicle-tag {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  padding: 0.4rem 1rem;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+
+.tag-blue { background: #dbeafe; color: #1e40af; }
+.tag-amber { background: #fef3c7; color: #92400e; }
+
+.fl-vehicle-info {
+  padding: 2.5rem;
+}
+
+.fl-vehicle-info h3 {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 2rem;
+  color: var(--primary-green);
+  margin-bottom: 1rem;
+}
+
+.fl-vehicle-desc {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: var(--text-muted, #666);
+  margin-bottom: 2rem;
+}
+
+.fl-specs {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+}
+
+.fl-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.87rem;
+  font-weight: 600;
+  color: var(--primary-green);
+}
+
+.fl-vehicle-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.fl-price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.fl-price-from {
+  font-size: 0.72rem;
+  color: var(--text-muted, #888);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.fl-price-amount {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 2.2rem;
+  color: var(--primary-green);
+  line-height: 1;
+}
+
+.fl-price-amount small {
+  font-size: 1rem;
+  opacity: 0.7;
+  font-family: var(--font-sans);
+}
+
+.fl-reserve-btn {
+  background: var(--primary-green);
+  color: var(--white);
+  border: none;
+  padding: 0.9rem 2rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+}
+
+.fl-reserve-btn:hover {
+  background: var(--gold);
+}
+
+/* ===== Sidebar ===== */
+.fl-sidebar {
+  position: sticky;
+  top: 120px;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.reservation-card, .guarantee-card {
-  background: var(--white);
+.fl-quote-card {
+  background: var(--primary-green);
+  color: var(--white);
   padding: 2.5rem;
-  border-radius: 8px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.reservation-card h3, .guarantee-card h3 {
-  margin-bottom: 1.5rem;
-  font-size: 1.2rem;
+.fl-quote-card .fl-label.dark {
+  color: var(--gold);
 }
 
-.reservation-card input {
+.fl-quote-card h3 {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+}
+
+.fl-quote-card > p {
+  font-size: 0.9rem;
+  opacity: 0.75;
+  margin-bottom: 2rem;
+}
+
+.fl-quote-card input,
+.fl-quote-card select {
   width: 100%;
   padding: 1rem;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
   margin-bottom: 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.3s;
+  border-radius: 2px;
 }
 
-.guarantee-card ul {
+.fl-quote-card input::placeholder {
+  color: rgba(255,255,255,0.5);
+}
+
+.fl-quote-card input:focus {
+  border-color: var(--gold);
+}
+
+.fl-submit-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: var(--gold);
+  color: var(--white);
+  border: none;
+  padding: 1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s;
+}
+
+.fl-submit-btn:hover {
+  background: var(--gold-hover, #b8960e);
+}
+
+.fl-guarantee-card {
+  background: var(--white);
+  padding: 2.5rem;
+  box-shadow: 0 15px 50px rgba(8,37,22,0.07);
+}
+
+.fl-guarantees {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  margin-top: 1.5rem;
 }
 
-.guarantee-card li {
-  font-size: 0.9rem;
-  line-height: 1.5;
+.fl-guarantee-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
 }
 
-@media (max-width: 992px) {
-  .fleet-hero {
-    min-height: 380px;
-    height: auto;
-    padding: clamp(6rem, 18vw, 8rem) 0 clamp(2.5rem, 8vw, 4rem);
+.fl-guarantee-icon {
+  color: var(--gold);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.fl-guarantee-item h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 0.4rem;
+}
+
+.fl-guarantee-item p {
+  font-size: 0.87rem;
+  line-height: 1.65;
+  color: var(--text-muted, #666);
+  margin: 0;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1100px) {
+  .fl-layout {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  .fleet-hero .hero-title {
-    font-size: clamp(1.75rem, 5vw, 2.75rem);
+  .fl-sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
+}
 
-  .fleet-filter {
+@media (max-width: 768px) {
+  .fl-filter {
     flex-direction: column;
     align-items: stretch;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
-  .fleet-filter .btn {
+  .fl-filter-item {
+    padding: 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(0,0,0,0.07);
+    padding-bottom: 1.5rem;
+  }
+
+  .fl-filter-btn {
+    margin-left: 0;
     width: 100%;
     justify-content: center;
   }
 
-  .fleet-container {
+  .fl-sidebar {
     grid-template-columns: 1fr;
-    gap: 2rem;
   }
 
-  .vehicle-card {
+  .fl-hero-actions {
     flex-direction: column;
   }
 
-  .vehicle-card img {
+  .fl-vehicle-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .fl-reserve-btn {
     width: 100%;
-    height: 220px;
-    max-width: none;
-  }
-
-  .vehicle-info {
-    padding: clamp(1.25rem, 4vw, 2.5rem);
-  }
-
-  .specs {
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    text-align: center;
+    justify-content: center;
   }
 }

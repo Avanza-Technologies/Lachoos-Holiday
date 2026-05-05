@@ -1,150 +1,441 @@
-.honeymoon-hero {
-  height: 60vh;
-  min-height: 500px;
-  padding-top: max(4.5rem, env(safe-area-inset-top));
-  background: url('/images/packages/honeymoon-bg.jpg') center/cover no-repeat;
-  display: flex;
-  align-items: center;
-  color: var(--white);
-  position: relative;
-}
+/* Honeymoon Luxury Styles */
 
-.honeymoon-hero .hero-overlay {
-  background: linear-gradient(to right, rgba(8, 37, 22, 0.8) 0%, rgba(8, 37, 22, 0.2) 100%);
-}
-
-.honeymoon-hero .container {
-  position: relative;
-  z-index: 10;
-}
-
-.honeymoon-hero .hero-title {
-  font-size: 3.5rem;
-  margin: 1rem 0;
-}
-
-.honeymoon-hero .hero-subtitle {
-  max-width: 600px;
-  margin-bottom: 2rem;
-  font-family: var(--font-sans);
-}
-
-.packages-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
-
-.package-card {
-  background: var(--white);
-  border-radius: 8px;
+.hm-page {
+  background-color: #faf9f6; /* Very light, warm off-white for elegance */
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.package-card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
+/* Typography Overrides for this specific page if needed */
+.hm-heading {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  color: var(--primary-green);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
 }
 
-.package-content {
-  padding: 2rem;
-}
-
-.package-content .tag {
-  font-size: 0.7rem;
+.hm-label {
+  font-size: 0.75rem;
   font-weight: 700;
   color: var(--gold);
-  border: 1px solid var(--gold);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  display: block;
   margin-bottom: 1rem;
-  display: inline-block;
 }
 
-.package-content h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+.hm-label.dark {
   color: var(--primary-green);
 }
 
-.package-footer {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+/* Hero Section */
+.hm-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  overflow: hidden;
+  padding-top: 80px;
 }
 
-.package-footer span {
-  font-weight: 700;
-  color: var(--primary-green);
+.hm-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 1;
 }
 
-.btn-link {
-  background: none;
+.hm-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(8, 37, 22, 0.9) 0%, rgba(8, 37, 22, 0.3) 100%);
+  z-index: 2;
+}
+
+.hm-hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+}
+
+.hm-hero-text {
+  max-width: 700px;
+  color: var(--white);
+}
+
+.hm-title {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  line-height: 1.05;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.hm-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  font-family: var(--font-sans);
+  max-width: 500px;
+}
+
+.hm-btn {
+  background: var(--gold);
+  color: var(--white);
   border: none;
-  color: var(--gold);
-  font-weight: 600;
+  padding: 1rem 2rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
   cursor: pointer;
-  text-decoration: underline;
+  border-radius: 2px;
+  transition: all 0.4s ease;
 }
 
-.philosophy-container {
+.hm-btn:hover {
+  background: var(--gold-hover);
+  padding-left: 2.5rem;
+  padding-right: 1.5rem;
+}
+
+/* Intro Section */
+.hm-intro {
+  background-color: var(--white);
+  padding: 8rem 0;
+}
+
+.hm-intro-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: center;
 }
 
-.philosophy-image img {
-  width: 100%;
-  border-radius: 8px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+.hm-intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-muted);
 }
 
-.phil-item {
-  margin-top: 2rem;
+.hm-intro-stats {
+  display: flex;
+  justify-content: space-around;
+  gap: 2rem;
 }
 
-.phil-item h4 {
-  font-family: var(--font-sans);
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.stat-icon {
+  width: 48px;
+  height: 48px;
+  color: var(--gold);
+  stroke-width: 1.5;
+}
+
+.stat-item span {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 1.1rem;
   color: var(--primary-green);
-  margin-bottom: 0.5rem;
+  line-height: 1.4;
 }
 
+/* Magazine Style Packages */
+.hm-collections {
+  padding: 4rem 0 8rem;
+}
+
+.hm-package-showcase {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 6rem;
+  align-items: center;
+  margin-bottom: 8rem;
+}
+
+.hm-package-showcase.reverse {
+  grid-template-columns: 0.8fr 1.2fr;
+}
+
+.hm-package-showcase.reverse .hm-pkg-image-wrapper {
+  order: 2;
+}
+
+.hm-package-showcase.reverse .hm-pkg-info {
+  order: 1;
+  padding-right: 2rem;
+  padding-left: 0;
+}
+
+.hm-pkg-image-wrapper {
+  position: relative;
+}
+
+.hm-pkg-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--gold);
+  z-index: 0;
+  transition: all 0.5s ease;
+}
+
+.hm-package-showcase.reverse .hm-pkg-image-wrapper::before {
+  left: auto;
+  right: -20px;
+}
+
+.hm-pkg-image {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(8, 37, 22, 0.15);
+}
+
+.hm-pkg-image img {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hm-package-showcase:hover .hm-pkg-image img {
+  transform: scale(1.05);
+}
+
+.hm-package-showcase:hover .hm-pkg-image-wrapper::before {
+  top: -10px;
+  left: -10px;
+}
+
+.hm-package-showcase.reverse:hover .hm-pkg-image-wrapper::before {
+  left: auto;
+  right: -10px;
+}
+
+.hm-pkg-info {
+  padding-left: 2rem;
+}
+
+.hm-pkg-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+.hm-pkg-title {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  color: var(--primary-green);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hm-pkg-desc {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+}
+
+.hm-pkg-action {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  border-top: 1px solid rgba(8, 37, 22, 0.1);
+  padding-top: 2rem;
+}
+
+.hm-pkg-price {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.hm-pkg-price .label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.hm-pkg-price .amount {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 2rem;
+  color: var(--primary-green);
+}
+
+.hm-btn-outline {
+  background: transparent;
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 0.8rem 1.5rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.hm-btn-outline:hover {
+  background: var(--primary-green);
+  color: var(--white);
+}
+
+/* Philosophy Section */
+.hm-philosophy {
+  background-color: var(--primary-green);
+  color: var(--white);
+  padding: 8rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.hm-philosophy::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--gold);
+  opacity: 0.03;
+  border-top-left-radius: 500px;
+  pointer-events: none;
+}
+
+.hm-phil-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.hm-philosophy .hm-heading,
+.hm-philosophy .hm-label.dark {
+  color: var(--gold);
+}
+
+.hm-phil-lead {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+.hm-phil-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+
+.hm-phil-box h4 {
+  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--white);
+}
+
+.hm-phil-box p {
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.hm-phil-image {
+  position: relative;
+}
+
+.hm-phil-image img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  box-shadow: -20px 20px 0 rgba(197, 168, 126, 0.2);
+}
+
+/* Responsive Design */
 @media (max-width: 992px) {
-  .honeymoon-hero {
-    min-height: 380px;
-    height: auto;
-    padding: clamp(6rem, 18vw, 8rem) 0 clamp(2.5rem, 8vw, 4rem);
-  }
-
-  .honeymoon-hero .hero-title {
-    font-size: clamp(2rem, 6vw, 3.5rem);
-  }
-
-  .packages-grid {
+  .hm-intro-grid,
+  .hm-package-showcase,
+  .hm-package-showcase.reverse,
+  .hm-phil-wrapper {
     grid-template-columns: 1fr;
+    gap: 4rem;
   }
 
-  .philosophy-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .hm-package-showcase.reverse .hm-pkg-image-wrapper,
+  .hm-package-showcase.reverse .hm-pkg-info {
+    order: unset;
   }
 
-  .package-footer {
+  .hm-package-showcase.reverse .hm-pkg-info {
+    padding-right: 0;
+  }
+
+  .hm-pkg-info {
+    padding-left: 0;
+  }
+
+  .hm-pkg-image img,
+  .hm-phil-image img {
+    height: 450px;
+  }
+
+  .hm-intro-stats {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .hm-hero-text {
+    text-align: center;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 576px) {
+  .hm-intro-stats {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .hm-pkg-action {
     flex-direction: column;
     align-items: flex-start;
-    gap: 1rem;
+    gap: 1.5rem;
   }
 
-  .package-content h3 {
-    font-size: clamp(1.35rem, 4vw, 1.8rem);
+  .hm-btn-outline {
+    width: 100%;
+  }
+
+  .hm-hero-bg {
+    background-position: 70% center;
   }
 }
+
 
 @media (max-width: 480px) {
   .package-card img {

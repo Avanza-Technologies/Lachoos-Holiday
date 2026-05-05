@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Honeymoon from './pages/Honeymoon';
 import Sabarimala from './pages/Sabarimala';
 import Fleet from './pages/Fleet';
+import Contact from './pages/Contact';
 import './index.css';
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/honeymoon" element={<Honeymoon />} />
             <Route path="/sabarimala" element={<Sabarimala />} />
             <Route path="/fleet" element={<Fleet />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
         <Footer />

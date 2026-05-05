@@ -1,6 +1,48 @@
 import React, { useMemo, useState } from 'react';
 import { Star, Clock, MapPin } from 'lucide-react';
 import './TrendingPackages.css';
+import { motion, AnimatePresence } from 'framer-motion';
+
+const AnimatedImage = ({ images, title }) => {
+  const [index, setIndex] = useState(0);
+
+  // If only one image, just show it
+  if (!Array.isArray(images)) {
+    return <img src={images} alt={title} loading="lazy" />;
+  }
+
+  // Effect to cycle images
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000); // Change every 4 seconds
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <div style={{ position: 'relative', width: '100%', height: '100%', overflow: 'hidden' }}>
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={images[index]}
+          src={images[index]}
+          alt={title}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          style={{ 
+            position: 'absolute', 
+            top: 0, 
+            left: 0, 
+            width: '100%', 
+            height: '100%', 
+            objectFit: 'cover' 
+          }}
+        />
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const PACKAGES = [
   {
@@ -9,7 +51,11 @@ const PACKAGES = [
     location: 'Munnar, Alleppey',
     price: '₹18,500',
     rating: 4.9,
-    image: '/images/packages/munnar-alleppey.jpg',
+    images: [
+      '/images/packages/munnar-1.jpg',
+      '/images/packages/munnar-2.jpg',
+      '/images/packages/munnar-3.jpg'
+    ],
   },
   {
     title: 'Grand Wayanad Expedition',
@@ -17,7 +63,11 @@ const PACKAGES = [
     location: 'Wayanad',
     price: '₹15,200',
     rating: 4.8,
-    image: '/images/packages/wayanad.jpg',
+    images: [
+      '/images/packages/wayanad-1.jpg',
+      '/images/packages/wayanad-2.jpg',
+      '/images/packages/wayanad-3.jpg'
+    ],
   },
   {
     title: 'Kochi Heritage & Athirappilly',
@@ -25,7 +75,11 @@ const PACKAGES = [
     location: 'Kochi, Athirappilly',
     price: '₹12,800',
     rating: 4.7,
-    image: '/images/packages/kochi-athirappilly.jpg',
+    images: [
+      '/images/packages/kochi-1.jpg',
+      '/images/packages/kochi-2.jpg',
+      '/images/packages/kochi-3.jpg'
+    ],
   },
   {
     title: 'Kumarakom Backwaters & Houseboats',
@@ -33,7 +87,11 @@ const PACKAGES = [
     location: 'Kumarakom, Alleppey',
     price: '₹21,400',
     rating: 4.9,
-    image: '/images/packages/kumarakom.jpg',
+    images: [
+      '/images/packages/kumarakom-1.jpg',
+      '/images/packages/kumarakom-2.jpg',
+      '/images/packages/kumarakom-3.jpg'
+    ],
   },
   {
     title: 'Thekkady Wildlife & Spice Route',
@@ -41,7 +99,11 @@ const PACKAGES = [
     location: 'Thekkady, Periyar',
     price: '₹16,900',
     rating: 4.8,
-    image: '/images/packages/thekkady.jpg',
+    images: [
+      '/images/packages/thekkady-1.jpg',
+      '/images/packages/thekkady-2.jpg',
+      '/images/packages/thekkady-3.jpg'
+    ],
   },
   {
     title: 'Varkala Cliffs & Ayurveda',
@@ -49,7 +111,11 @@ const PACKAGES = [
     location: 'Varkala, Kovalam',
     price: '₹19,600',
     rating: 4.7,
-    image: '/images/packages/varkala.jpg',
+    images: [
+      '/images/packages/varkala-1.jpg',
+      '/images/packages/varkala-2.jpg',
+      '/images/packages/varkala-3.jpg'
+    ],
   },
   {
     title: 'Bekal & Nileshwaram Coastal Escape',
@@ -57,7 +123,11 @@ const PACKAGES = [
     location: 'Kasaragod, Bekal',
     price: '₹17,300',
     rating: 4.6,
-    image: '/images/packages/bekal.jpg',
+    images: [
+      '/images/packages/bekal-1.jpg',
+      '/images/packages/bekal-2.jpg',
+      '/images/packages/bekal-3.jpg'
+    ],
   },
   {
     title: 'Gavi Eco Trail & Jungle Camp',
@@ -65,7 +135,11 @@ const PACKAGES = [
     location: 'Pathanamthitta, Gavi',
     price: '₹14,500',
     rating: 4.8,
-    image: '/images/packages/gavi.jpg',
+    images: [
+      '/images/packages/gavi-1.jpg',
+      '/images/packages/gavi-2.jpg',
+      '/images/packages/gavi-3.jpg'
+    ],
   },
   {
     title: 'Sabarimala Pilgrim Comfort Circuit',
@@ -73,7 +147,11 @@ const PACKAGES = [
     location: 'Pathanamthitta, Pamba',
     price: '₹13,900',
     rating: 4.9,
-    image: '/images/packages/sabarimala.jpg',
+    images: [
+      '/images/packages/sabarimala-1.jpg',
+      '/images/packages/sabarimala-2.jpg',
+      '/images/packages/sabarimala-3.jpg'
+    ],
   },
 ];
 
@@ -127,7 +205,7 @@ const TrendingPackages = () => {
           {visiblePackages.map((pkg) => (
             <div className="pkg-card" key={pkg.title}>
               <div className="pkg-image">
-                <img src={pkg.image} alt={pkg.title} loading="lazy" />
+                <AnimatedImage images={pkg.images || pkg.image} title={pkg.title} />
                 <div className="pkg-rating">
                   <Star size={12} fill="currentColor" /> {pkg.rating}
                 </div>
