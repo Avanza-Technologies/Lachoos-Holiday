@@ -11,6 +11,19 @@ const titleLines = [
   ['the', 'Malabar', 'Sun'],
 ];
 
+const marqueeWords = [
+  'Heritage',
+  'Spice Trails',
+  'Pilgrimage',
+  'Ayurveda',
+  'Wildlife',
+  'Cuisine',
+  'Backwaters',
+  'Hill Stations',
+];
+
+const marqueeLoop = [...marqueeWords, ...marqueeWords];
+
 const wordVariants = {
   hidden: { y: '110%', opacity: 0 },
   visible: (i = 0) => ({
@@ -110,6 +123,16 @@ const Hero = () => {
           ))}
         </h1>
 
+        <motion.p
+          className="hero-kicker"
+          custom={1}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
+        >
+          Experience God&rsquo;s Own Country
+        </motion.p>
+
         {/* Subtitle */}
         <motion.p
           className="hero-subtitle"
@@ -118,12 +141,15 @@ const Hero = () => {
           Experience Kerala with personalized luxury — from the backwaters to the high ranges, curated by local experts.
         </motion.p>
 
-        {/* Search Bar — frosted glass */}
-        <motion.form
-          onSubmit={handleSearch}
-          className="search-bar"
-          custom={4} initial="hidden" animate="visible" variants={fadeUp}
+        {/* Search — frosted glass (rounded shell, Stitch-inspired) */}
+        <motion.div
+          className="hero-search-shell"
+          custom={4}
+          initial="hidden"
+          animate="visible"
+          variants={fadeUp}
         >
+          <form onSubmit={handleSearch} className="search-bar">
           <span className="search-bar-rule" aria-hidden="true" />
 
           <div className="search-field relative">
@@ -179,7 +205,8 @@ const Hero = () => {
             <span>SEARCH<br/>PACKAGES</span>
             <ArrowRight size={14} className="search-btn-arrow" />
           </button>
-        </motion.form>
+          </form>
+        </motion.div>
 
         {/* Trust Badges */}
         <motion.div
@@ -199,10 +226,16 @@ const Hero = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="hero-scroll-cue" aria-hidden="true">
-        <span className="hero-scroll-label">SCROLL</span>
-        <div className="hero-scroll-line" />
+      {/* Slim experiences marquee — anchored to hero bottom */}
+      <div className="hero-marquee" aria-label="Kerala experiences">
+        <div className="hero-marquee-track">
+          {marqueeLoop.map((word, i) => (
+            <span key={`${word}-${i}`} className="hero-marquee-item">
+              <span className="hero-marquee-word">{word}</span>
+              <span className="hero-marquee-dot" aria-hidden="true" />
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

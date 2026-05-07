@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, MessageCircle, ArrowUp } from 'lucide-react';
 import './Footer.css';
@@ -19,8 +19,23 @@ const policyLinks = [
 ];
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNewsletter = (e) => {
+    e.preventDefault();
+    const trimmed = email.trim();
+    if (!trimmed) return;
+    const subject = encodeURIComponent('Newsletter signup');
+    const body = encodeURIComponent(
+      'Please add this email to your newsletter list: ' + trimmed
+    );
+    globalThis.location.href =
+      'mailto:hello@lachoosholidays.in?subject=' + subject + '&body=' + body;
+    setEmail('');
   };
 
   return (
@@ -36,6 +51,36 @@ const Footer = () => {
           <p className="footer-quote">
             <em>&ldquo;A journey is best measured in friends, not in miles.&rdquo;</em>
           </p>
+        </div>
+
+        <hr className="footer-rule" />
+
+        {/* Newsletter — Stitch-style */}
+        <div className="footer-newsletter">
+          <div className="footer-newsletter-copy">
+            <h4 className="footer-newsletter-title">Newsletter</h4>
+            <p className="footer-newsletter-desc">
+              Seasonal itineraries, festival dates, and quiet offers &mdash; no spam.
+            </p>
+          </div>
+          <form className="footer-newsletter-form" onSubmit={handleNewsletter}>
+            <label htmlFor="footer-email" className="visually-hidden">
+              Email address
+            </label>
+            <input
+              id="footer-email"
+              type="email"
+              name="email"
+              autoComplete="email"
+              placeholder="Your email"
+              className="footer-newsletter-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <button type="submit" className="footer-newsletter-btn">
+              Join
+            </button>
+          </form>
         </div>
 
         <hr className="footer-rule" />

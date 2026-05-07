@@ -84,7 +84,7 @@
   gap: 1.5rem;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: max(calc((100vw - 1200px) / 2), 1rem);
+  scroll-padding-left: 0;
   -webkit-overflow-scrolling: touch;
   padding: 1rem 0 2rem;
   scrollbar-width: none;
@@ -94,11 +94,6 @@
   display: none;
 }
 
-.se-track-spacer {
-  flex: 0 0 max(calc((100vw - 1200px) / 2 + 1rem), 2rem);
-  height: 1px;
-}
-
 /* Cards */
 .se-card {
   flex: 0 0 clamp(260px, 32vw, 360px);
@@ -106,15 +101,15 @@
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border-radius: 2px;
-  box-shadow: 0 12px 30px rgba(8, 37, 22, 0.08);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
   transition: transform 0.5s var(--ease-luxe), box-shadow 0.5s var(--ease-luxe);
 }
 
 .se-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 28px 60px rgba(8, 37, 22, 0.16);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .se-card-image {

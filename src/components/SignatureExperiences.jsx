@@ -120,10 +120,10 @@ const SignatureExperiences = () => {
         </motion.div>
       </div>
 
-      <div className="se-track-wrap">
-        <div className="se-track" ref={trackRef}>
-          <div className="se-track-spacer" aria-hidden="true" />
-          {experiences.map((exp, i) => (
+      <div className="container se-track-outer">
+        <div className="se-track-wrap">
+          <div className="se-track" ref={trackRef}>
+            {experiences.map((exp, i) => (
             <motion.article
               key={exp.title}
               className="se-card"
@@ -147,8 +147,8 @@ const SignatureExperiences = () => {
               </div>
             </motion.article>
           ))}
-          <div className="se-track-spacer" aria-hidden="true" />
         </div>
+      </div>
       </div>
     </section>
   );

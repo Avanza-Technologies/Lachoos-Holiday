@@ -160,6 +160,12 @@
 }
 
 /* === Responsive === */
+@media (max-width: 767px) {
+  .fc-root {
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @media (max-width: 600px) {
   .fc-toggle-label {
     display: none;
