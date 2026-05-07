@@ -1,15 +1,31 @@
-/* ===== Why Choose Us — Editorial Numerals ===== */
+/* ===== Why Choose Us — Editorial Typography ===== */
 
 .wcu-section {
   background: var(--white);
   padding: clamp(5rem, 9vw, 7.5rem) 0;
+  position: relative;
 }
 
-/* === Centered header band === */
+/* Subtle top hairline locator (matches other section openers) */
+.wcu-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* === Centered editorial header === */
 .wcu-header {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto clamp(3.5rem, 7vw, 5rem);
+  margin: 0 auto clamp(3rem, 6vw, 4.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .wcu-label {
@@ -35,11 +51,11 @@
 
 .wcu-heading {
   font-family: var(--font-serif);
-  font-size: clamp(1.85rem, 3.4vw, 2.6rem);
+  font-size: clamp(1.95rem, 3.6vw, 2.85rem);
   color: var(--primary-green);
-  line-height: 1.18;
+  line-height: 1.16;
   font-weight: 400;
-  letter-spacing: -0.005em;
+  letter-spacing: -0.008em;
   margin-bottom: 1.25rem;
 }
 
@@ -49,166 +65,130 @@
 }
 
 .wcu-lead {
-  font-size: 0.98rem;
-  line-height: 1.75;
+  font-size: 1rem;
+  line-height: 1.8;
   color: var(--text-muted, #666);
-  max-width: 38rem;
-  margin: 0 auto;
+  max-width: 36rem;
+  margin: 0 0 2rem;
 }
 
-/* === Two-column body === */
-.wcu-body {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: clamp(2.5rem, 5vw, 4.5rem);
-  align-items: stretch;
+/* Decorative ornament — gold rule with diamond mark */
+.wcu-ornament {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: var(--gold);
 }
 
-/* === Editorial rows === */
-.wcu-list {
+.wcu-ornament-rule {
+  width: 56px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+}
+
+.wcu-ornament-mark {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+/* === 2x2 matrix of values === */
+.wcu-grid {
   list-style: none;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  border-top: 1px solid var(--rule);
-  display: flex;
-  flex-direction: column;
-}
-
-.wcu-row {
   display: grid;
-  grid-template-columns: 64px 1fr;
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 1080px;
+  border-top: 1px solid var(--rule);
+  border-left: 1px solid var(--rule);
+}
+
+.wcu-cell {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: clamp(1rem, 2vw, 1.6rem);
+  padding: clamp(2rem, 3.5vw, 2.75rem);
   align-items: baseline;
-  padding: 1.5rem 0;
+  border-right: 1px solid var(--rule);
   border-bottom: 1px solid var(--rule);
-  flex: 1;
-  min-height: 0;
-  transition: background 0.4s var(--ease-luxe), padding-left 0.4s var(--ease-luxe);
+  background: var(--white);
+  position: relative;
+  transition: background 0.5s var(--ease-luxe);
 }
 
-.wcu-row:hover {
-  background: linear-gradient(to right, rgba(223, 169, 49, 0.04), transparent 60%);
-  padding-left: 0.5rem;
+.wcu-cell::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.55s var(--ease-luxe);
 }
 
-.wcu-num {
+.wcu-cell:hover {
+  background: linear-gradient(to bottom, rgba(247, 243, 235, 0.7), var(--white));
+}
+
+.wcu-cell:hover::before {
+  transform: scaleX(1);
+}
+
+.wcu-cell-num {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(1.9rem, 2.8vw, 2.4rem);
+  font-size: clamp(2.2rem, 3.4vw, 3rem);
   font-weight: 400;
   color: var(--gold);
   line-height: 1;
   letter-spacing: -0.005em;
 }
 
-.wcu-row-text h3 {
+.wcu-cell-body {
+  min-width: 0;
+}
+
+.wcu-cell-title {
   font-family: var(--font-serif);
-  font-size: clamp(1.1rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
   color: var(--primary-green);
-  margin-bottom: 0.55rem;
+  margin: 0 0 0.7rem;
   line-height: 1.3;
   font-weight: 600;
   letter-spacing: -0.005em;
 }
 
-.wcu-row-text p {
-  font-size: 0.92rem;
-  line-height: 1.7;
+.wcu-cell-desc {
+  font-size: 0.93rem;
+  line-height: 1.75;
   color: var(--text-muted, #666);
   margin: 0;
   max-width: 36ch;
 }
 
-/* === Anchor image === */
-.wcu-image {
-  position: relative;
-  margin: 0;
-  border-radius: 2px;
-  overflow: hidden;
-  align-self: stretch;
-  min-height: 100%;
-  box-shadow: 0 24px 50px rgba(8, 37, 22, 0.16);
-}
-
-.wcu-image::after {
-  content: '';
-  position: absolute;
-  inset: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  pointer-events: none;
-  z-index: 2;
-}
-
-.wcu-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform 1.6s var(--ease-luxe);
-}
-
-.wcu-image:hover img {
-  transform: scale(1.03);
-}
-
-.wcu-image-caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 3;
-  padding: 3rem 1.75rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  color: var(--white);
-  background: linear-gradient(to top, rgba(8, 37, 22, 0.85) 0%, rgba(8, 37, 22, 0) 100%);
-}
-
-.wcu-image-eyebrow {
-  font-family: var(--font-sans);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.wcu-image-title {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
-  color: var(--white);
-  letter-spacing: -0.005em;
-}
-
 /* === Responsive === */
-@media (max-width: 992px) {
-  .wcu-body {
+@media (max-width: 768px) {
+  .wcu-grid {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    max-width: 600px;
   }
 
-  .wcu-image {
-    aspect-ratio: 4 / 3;
-    max-width: 640px;
-    margin: 0 auto;
-    width: 100%;
-    align-self: auto;
+  .wcu-cell {
+    grid-template-columns: 56px 1fr;
+    padding: 1.85rem 1.5rem;
+  }
+
+  .wcu-cell-num {
+    font-size: 1.85rem;
   }
 }
 
 @media (max-width: 600px) {
-  .wcu-row {
-    grid-template-columns: 48px 1fr;
-    gap: 1rem;
-    padding: 1.25rem 0;
-  }
-
-  .wcu-num {
-    font-size: 1.65rem;
-  }
-
   .wcu-label {
     gap: 0.6rem;
     letter-spacing: 0.24em;
@@ -219,10 +199,12 @@
     width: 18px;
   }
 
-  .wcu-image::after { inset: 10px; }
-  .wcu-image-caption { padding: 2.25rem 1.25rem 1.25rem; }
-}
+  .wcu-ornament-rule {
+    width: 36px;
+  }
 
-@media (prefers-reduced-motion: reduce) {
-  .wcu-image img { transform: none !important; }
+  .wcu-cell {
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+  }
 }

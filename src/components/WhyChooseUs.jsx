@@ -26,75 +26,69 @@ const reasons = [
 ];
 
 const fadeIn = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.8, delay: 0.05 + i * 0.09, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
 const WhyChooseUs = () => (
   <section className="wcu-section">
     <div className="container">
-      {/* Centered header band */}
+      {/* Centered editorial header */}
       <motion.div
         className="wcu-header"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-80px' }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
       >
         <span className="wcu-label">
           <span className="wcu-label-rule" aria-hidden="true" />
-          OUR VALUES
+          <span>OUR VALUES</span>
           <span className="wcu-label-rule" aria-hidden="true" />
         </span>
         <h2 className="wcu-heading">
           Why guests choose <em>Lachoos Holidays</em>
         </h2>
         <p className="wcu-lead">
-          We are more than a travel agency &mdash; we are your personal
-          Kerala specialists, accountable at every step of the journey.
+          We are more than a travel agency &mdash; we are your personal Kerala
+          specialists, accountable at every step of the journey.
         </p>
+
+        {/* Decorative ornament — gold rule with a diamond */}
+        <div className="wcu-ornament" aria-hidden="true">
+          <span className="wcu-ornament-rule" />
+          <svg viewBox="0 0 16 16" className="wcu-ornament-mark">
+            <path d="M8 1 L15 8 L8 15 L1 8 Z" fill="none" stroke="currentColor" strokeWidth="1.2" />
+            <circle cx="8" cy="8" r="1.4" fill="currentColor" />
+          </svg>
+          <span className="wcu-ornament-rule" />
+        </div>
       </motion.div>
 
-      {/* Two-column body — rows + image, matched heights */}
-      <div className="wcu-body">
-        <ul className="wcu-list">
-          {reasons.map((item, i) => (
-            <motion.li
-              key={item.n}
-              className="wcu-row"
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-60px' }}
-              variants={fadeIn}
-            >
-              <span className="wcu-num">{item.n}</span>
-              <div className="wcu-row-text">
-                <h3>{item.title}</h3>
-                <p>{item.desc}</p>
-              </div>
-            </motion.li>
-          ))}
-        </ul>
-
-        <motion.figure
-          className="wcu-image"
-          initial={{ opacity: 0, scale: 1.04 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <img src="/images/packages/kumarakom-1.jpg" alt="Kerala backwaters at golden hour" />
-          <figcaption className="wcu-image-caption">
-            <span className="wcu-image-eyebrow">A SIGNATURE MOMENT</span>
-            <span className="wcu-image-title">Sunrise on the Backwaters</span>
-          </figcaption>
-        </motion.figure>
-      </div>
+      {/* 2x2 matrix of values */}
+      <ul className="wcu-grid">
+        {reasons.map((item, i) => (
+          <motion.li
+            key={item.n}
+            className="wcu-cell"
+            custom={i}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-60px' }}
+            variants={fadeIn}
+          >
+            <span className="wcu-cell-num">{item.n}</span>
+            <div className="wcu-cell-body">
+              <h3 className="wcu-cell-title">{item.title}</h3>
+              <p className="wcu-cell-desc">{item.desc}</p>
+            </div>
+          </motion.li>
+        ))}
+      </ul>
     </div>
   </section>
 );
