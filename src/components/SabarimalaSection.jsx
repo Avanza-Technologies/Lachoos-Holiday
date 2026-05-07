@@ -23,9 +23,29 @@ const SabarimalaSection = () => (
       >
         <div className="ss-image-wrapper">
           <img src="/images/packages/sabarimala-main.jpg" alt="Sabarimala Temple" />
-          <div className="ss-image-badge">
-            <span className="ss-badge-title">Spiritual Packages</span>
-            <span className="ss-badge-sub">Pathanamthitta Experts</span>
+
+          {/* Circular gold seal */}
+          <div className="ss-seal" aria-hidden="true">
+            <svg viewBox="0 0 140 140" className="ss-seal-ring">
+              <defs>
+                <path
+                  id="ss-seal-path"
+                  d="M 70,70 m -55,0 a 55,55 0 1,1 110,0 a 55,55 0 1,1 -110,0"
+                />
+              </defs>
+              <circle cx="70" cy="70" r="64" fill="none" stroke="var(--gold)" strokeWidth="1" opacity="0.4" />
+              <circle cx="70" cy="70" r="55" fill="none" stroke="var(--gold)" strokeWidth="1" />
+              <text fontSize="9" letterSpacing="3" fill="var(--gold)" fontFamily="Inter, sans-serif" fontWeight="700">
+                <textPath href="#ss-seal-path" startOffset="0">
+                  &middot; PATHANAMTHITTA EXPERTS &middot; SINCE 2014 &middot;
+                </textPath>
+              </text>
+            </svg>
+            <div className="ss-seal-core">
+              <span className="ss-seal-core-line">SPIRITUAL</span>
+              <span className="ss-seal-core-mark">&#10047;</span>
+              <span className="ss-seal-core-line">PACKAGES</span>
+            </div>
           </div>
         </div>
       </motion.div>
@@ -40,8 +60,9 @@ const SabarimalaSection = () => (
       >
         <span className="ss-label">SPIRITUAL SANCTUARY</span>
         <h2 className="ss-heading">
-          Sabarimala<br />Specialized Packages
+          Sabarimala<br /><em>Specialized Packages.</em>
         </h2>
+        <span className="ss-rule" aria-hidden="true" />
 
         <div className="ss-features">
           {features.map((f, i) => (

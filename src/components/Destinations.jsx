@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
 import './Destinations.css';
 
-/* ── Animated Counter ── */
+/* Animated counter */
 const Counter = ({ target, suffix = '' }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -24,6 +24,60 @@ const Counter = ({ target, suffix = '' }) => {
   }, [inView, target]);
 
   return <span ref={ref}>{count}{suffix}</span>;
+};
+
+/* Mosaic card with parallax image */
+const MosaicCard = ({ dest, i }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ['start end', 'end start'],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], ['-8%', '8%']);
+
+  return (
+    <motion.div
+      ref={ref}
+      className={`dest-card dest-card--${dest.size}`}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-60px' }}
+      transition={{ delay: i * 0.1, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="dest-img-wrap">
+        <motion.div className="dest-img-parallax" style={{ y }}>
+          <img src={dest.img} alt={dest.title} className="dest-img" />
+        </motion.div>
+        <div className="dest-gradient" />
+
+        <div className="dest-panel">
+          <div className="dest-panel-top">
+            <span className="dest-chip">{dest.tag}</span>
+          </div>
+          <div className="dest-panel-bottom">
+            <div className="dest-location">
+              <MapPin size={13} /> {dest.location}
+            </div>
+            <p className="dest-card-desc">{dest.desc}</p>
+            <Link to="/contact" className="dest-explore-btn">
+              Enquire Now <ArrowRight size={14} />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Caption rendered OUTSIDE the card */}
+      <div className="dest-caption">
+        <div className="dest-caption-text">
+          <span className="dest-caption-num">0{i + 1}</span>
+          <h3 className="dest-card-title">{dest.title}</h3>
+        </div>
+        <Link to="/contact" className="dest-caption-link">
+          View <ArrowRight size={12} />
+        </Link>
+      </div>
+    </motion.div>
+  );
 };
 
 const destinations = [
@@ -62,7 +116,7 @@ const stats = [
 
 const Destinations = () => (
   <>
-    {/* ── Stats Strip ── */}
+    {/* Stats Strip */}
     <section className="stats-strip">
       <div className="container stats-grid">
         {stats.map((s, i) => (
@@ -72,68 +126,46 @@ const Destinations = () => (
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
+            transition={{ delay: i * 0.1, duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           >
             <span className="stat-number">
               <Counter target={s.num} suffix={s.suffix} />
             </span>
+            <span className="stat-rule" />
             <span className="stat-label">{s.label}</span>
           </motion.div>
         ))}
       </div>
     </section>
 
-    {/* ── Destinations ── */}
+    {/* Destinations */}
     <section className="dest-section">
       <div className="container">
-        {/* Header */}
         <motion.div
           className="dest-header"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div>
             <span className="dest-eyebrow">EXPERT CURATIONS</span>
-            <h2 className="dest-title">Curated Experiences</h2>
+            <h2 className="dest-title">
+              Curated <em>Experiences.</em>
+            </h2>
+            <p className="dest-sub">
+              A handpicked atlas of Kerala&rsquo;s most cinematic landscapes &mdash;
+              drifted through, never rushed.
+            </p>
           </div>
-          <a href="#" className="dest-view-all">
+          <Link to="/contact" className="dest-view-all">
             VIEW ALL DESTINATIONS <ArrowRight size={14} />
-          </a>
+          </Link>
         </motion.div>
 
-        {/* Mosaic Grid */}
         <div className="dest-mosaic">
           {destinations.map((dest, i) => (
-            <motion.div
-              key={i}
-              className={`dest-card dest-card--${dest.size}`}
-              initial={{ opacity: 0, scale: 0.97 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ delay: i * 0.1, duration: 0.7 }}
-            >
-              <img src={dest.img} alt={dest.title} className="dest-img" />
-              <div className="dest-gradient" />
-
-              {/* Hover Reveal Panel */}
-              <div className="dest-panel">
-                <div className="dest-panel-top">
-                  <span className="dest-chip">{dest.tag}</span>
-                </div>
-                <div className="dest-panel-bottom">
-                  <div className="dest-location">
-                    <MapPin size={13} /> {dest.location}
-                  </div>
-                  <h3 className="dest-card-title">{dest.title}</h3>
-                  <p className="dest-card-desc">{dest.desc}</p>
-                  <Link to="/contact" className="dest-explore-btn">
-                    Enquire Now <ArrowRight size={14} />
-                  </Link>
-                </div>
-              </div>
-            </motion.div>
+            <MosaicCard key={dest.title} dest={dest} i={i} />
           ))}
         </div>
       </div>

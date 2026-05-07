@@ -1,5 +1,5 @@
 import React from 'react';
-import { MessageCircle, Phone, ArrowRight } from 'lucide-react';
+import { MessageCircle, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './ExpertContact.css';
 
@@ -25,13 +25,44 @@ const ExpertContact = () => (
 
         <div className="ec-content-col">
           <span className="ec-label">SPEAK TO AN EXPERT</span>
-          <h2 className="ec-heading">Your Personal Kerala Travel Architect</h2>
+          <h2 className="ec-heading">
+            Your personal Kerala<br /><em>travel architect.</em>
+          </h2>
           <blockquote className="ec-quote">
-            "I personally oversee every itinerary — from your first call to the moment you return home. Your journey is my commitment."
+            &ldquo;I personally oversee every itinerary &mdash; from your first call to the moment you return home. Your journey is my commitment.&rdquo;
           </blockquote>
+
+          {/* Handwritten signature line */}
+          <svg
+            className="ec-signature"
+            viewBox="0 0 220 48"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M2 30 C 14 8, 28 42, 44 22 S 70 8, 86 28 S 116 36, 132 18 S 158 6, 178 30 S 200 38, 218 22"
+              fill="none"
+              stroke="var(--gold)"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+            />
+            <path
+              d="M 152 36 L 218 36"
+              fill="none"
+              stroke="var(--gold)"
+              strokeWidth="1"
+              strokeLinecap="round"
+              opacity="0.5"
+            />
+          </svg>
+
           <div className="ec-specialist">
+            <span className="ec-status">
+              <span className="ec-status-dot" aria-hidden="true" />
+              <span>Available now</span>
+            </span>
             <strong>Rajesh Pillai</strong>
-            <span>Senior Travel Specialist, Pathanamthitta</span>
+            <span className="ec-role">Senior Travel Specialist, Pathanamthitta</span>
           </div>
 
           <div className="ec-actions">

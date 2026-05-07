@@ -1,16 +1,36 @@
 import React, { useState } from 'react';
-import { MapPin, Calendar, Users, ArrowRight, Search } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { MapPin, Calendar, Users, ArrowRight, Search, ShieldCheck } from 'lucide-react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import './Hero.css';
 
 const heroImg = "/images/packages/hero-bg.jpg";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+const titleLines = [
+  ['Where', 'Emerald'],
+  ['Waters', 'Meet'],
+  ['the', 'Malabar', 'Sun'],
+];
+
+const wordVariants = {
+  hidden: { y: '110%', opacity: 0 },
   visible: (i = 0) => ({
-    opacity: 1, y: 0,
-    transition: { duration: 0.8, delay: i * 0.15, ease: "easeOut" }
-  })
+    y: '0%',
+    opacity: 1,
+    transition: {
+      duration: 1.05,
+      delay: 0.35 + i * 0.09,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 26 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.9, delay: i * 0.18, ease: [0.22, 1, 0.36, 1] },
+  }),
 };
 
 const Hero = () => {
@@ -18,6 +38,9 @@ const Hero = () => {
   const [duration, setDuration] = useState('3 - 5 Days');
   const [travelers, setTravelers] = useState('2 Adults');
   const [showSuggestions, setShowSuggestions] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.4 });
 
   const locations = [
     'Alleppey Backwaters', 'Munnar Tea Estates', 'Wayanad Wilderness',
@@ -35,49 +58,74 @@ const Hero = () => {
     window.open(`https://wa.me/919447912456?text=${encodeURIComponent(message)}`, '_blank');
   };
 
+  let wordIndex = 0;
+
   return (
     <section className="hero-section">
+      {/* Scroll progress hairline */}
+      <motion.div className="hero-progress" style={{ scaleX: progress }} />
+
       <motion.div
         className="hero-bg"
         style={{ backgroundImage: `url(${heroImg})` }}
-        initial={{ scale: 1.08 }}
-        animate={{ scale: 1 }}
-        transition={{ duration: 14, ease: "easeOut" }}
+        initial={{ scale: 1.18, x: '-1.5%' }}
+        animate={{ scale: 1, x: '0%' }}
+        transition={{ duration: 18, ease: [0.22, 1, 0.36, 1] }}
       />
+      <div className="hero-vignette" />
       <div className="hero-overlay" />
 
       <div className="hero-content">
-        {/* Label */}
-        <motion.span
-          className="hero-eyebrow"
+        {/* Eyebrow */}
+        <motion.div
+          className="hero-eyebrow-wrap"
           custom={0} initial="hidden" animate="visible" variants={fadeUp}
         >
-          GOD'S OWN COUNTRY · KERALA, INDIA
-        </motion.span>
+          <span className="hero-eyebrow-rule" />
+          <span className="hero-eyebrow">GOD'S OWN COUNTRY · KERALA, INDIA</span>
+          <span className="hero-eyebrow-rule" />
+        </motion.div>
 
-        {/* Title */}
-        <motion.h1
-          className="hero-title"
-          custom={1} initial="hidden" animate="visible" variants={fadeUp}
-        >
-          Where Emerald<br />Waters Meet<br />the Malabar Sun
-        </motion.h1>
+        {/* Title — word-by-word reveal */}
+        <h1 className="hero-title" aria-label="Where Emerald Waters Meet the Malabar Sun">
+          {titleLines.map((line, li) => (
+            <span key={li} className="hero-title-line">
+              {line.map((word) => {
+                const i = wordIndex++;
+                return (
+                  <span key={`${li}-${i}`} className="hero-title-word">
+                    <motion.span
+                      className="hero-title-word-inner"
+                      custom={i}
+                      initial="hidden"
+                      animate="visible"
+                      variants={wordVariants}
+                    >
+                      {word}
+                    </motion.span>
+                  </span>
+                );
+              })}
+            </span>
+          ))}
+        </h1>
 
         {/* Subtitle */}
         <motion.p
           className="hero-subtitle"
-          custom={2} initial="hidden" animate="visible" variants={fadeUp}
+          custom={3} initial="hidden" animate="visible" variants={fadeUp}
         >
           Experience Kerala with personalized luxury — from the backwaters to the high ranges, curated by local experts.
         </motion.p>
 
-        {/* Search Bar */}
+        {/* Search Bar — frosted glass */}
         <motion.form
           onSubmit={handleSearch}
           className="search-bar"
-          custom={3} initial="hidden" animate="visible" variants={fadeUp}
+          custom={4} initial="hidden" animate="visible" variants={fadeUp}
         >
-          {/* Destination */}
+          <span className="search-bar-rule" aria-hidden="true" />
+
           <div className="search-field relative">
             <MapPin className="search-icon" size={18} />
             <div className="search-text">
@@ -100,7 +148,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Duration */}
           <div className="search-field">
             <Calendar className="search-icon" size={18} />
             <div className="search-text">
@@ -114,7 +161,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Travelers */}
           <div className="search-field">
             <Users className="search-icon" size={18} />
             <div className="search-text">
@@ -129,27 +175,33 @@ const Hero = () => {
           </div>
 
           <button type="submit" className="search-btn">
-            <Search size={16} />
+            <Search size={16} className="search-btn-icon" />
             <span>SEARCH<br/>PACKAGES</span>
-            <ArrowRight size={14} />
+            <ArrowRight size={14} className="search-btn-arrow" />
           </button>
         </motion.form>
 
         {/* Trust Badges */}
         <motion.div
           className="hero-trust"
-          custom={4} initial="hidden" animate="visible" variants={fadeUp}
+          custom={5} initial="hidden" animate="visible" variants={fadeUp}
         >
           <div className="trust-item"><span className="trust-num">500+</span><span>Happy Travellers</span></div>
           <div className="trust-divider" />
           <div className="trust-item"><span className="trust-num">10+</span><span>Years in Kerala</span></div>
           <div className="trust-divider" />
           <div className="trust-item"><span className="trust-num">4.9★</span><span>Avg. Rating</span></div>
+          <div className="trust-divider" />
+          <div className="trust-item trust-verified">
+            <ShieldCheck size={14} />
+            <span>Verified Local Operator</span>
+          </div>
         </motion.div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="hero-scroll-cue">
+      <div className="hero-scroll-cue" aria-hidden="true">
+        <span className="hero-scroll-label">SCROLL</span>
         <div className="hero-scroll-line" />
       </div>
     </section>
