@@ -17,17 +17,17 @@ const contactInfo = [
   {
     icon: <Phone size={22} />,
     label: "CALL US DIRECTLY",
-    value: "+91 94479 12456",
+    value: "+91 90748 85337",
     sub: "Mon–Sun, 7 AM – 10 PM",
-    action: "tel:+919447912456",
+    action: "tel:+919074885337",
     actionLabel: "Call Now"
   },
   {
     icon: <MessageCircle size={22} />,
     label: "WHATSAPP",
-    value: "+91 94479 12456",
+    value: "+91 90748 85337",
     sub: "Instant response guaranteed",
-    action: "https://wa.me/919447912456?text=Hello! I'd like to plan a trip with Lachoos Holidays.",
+    action: "https://wa.me/919074885337?text=Hello! I'd like to plan a trip with Lachoos Holidays.",
     actionLabel: "Chat on WhatsApp"
   },
   {
@@ -68,7 +68,7 @@ const Contact = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const msg = `*New Inquiry — Lachoos Holidays*\n\nName: ${form.name}\nPhone: ${form.phone}\nEmail: ${form.email}\nService: ${form.service}\n\nMessage:\n${form.message}`;
-    window.open(`https://wa.me/919447912456?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(msg)}`, '_blank');
     setSent(true);
     setTimeout(() => setSent(false), 5000);
   };
@@ -232,7 +232,7 @@ const Contact = () => {
                 <div className="ct-hours-row"><span>Sunday</span><strong>9:00 AM – 8:00 PM</strong></div>
               </div>
               <a
-                href="https://wa.me/919447912456"
+                href="https://wa.me/919074885337"
                 target="_blank"
                 rel="noreferrer"
                 className="ct-wa-btn"

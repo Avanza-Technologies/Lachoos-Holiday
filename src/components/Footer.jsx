@@ -102,7 +102,7 @@ const Footer = () => {
             </p>
             <div className="social-links">
               <a
-                href="https://wa.me/919447912456"
+                href="https://wa.me/919074885337"
                 aria-label="WhatsApp"
                 className="social-icon"
                 target="_blank"
@@ -111,7 +111,7 @@ const Footer = () => {
                 <MessageCircle size={16} />
               </a>
               <a
-                href="tel:+919447912456"
+                href="tel:+919074885337"
                 aria-label="Call"
                 className="social-icon"
               >
@@ -154,7 +154,7 @@ const Footer = () => {
             <ul className="footer-contact">
               <li>
                 <Phone size={14} className="contact-icon" />
-                <a href="tel:+919447912456">+91 944 791 2456</a>
+                <a href="tel:+919074885337">+91 907 488 5337</a>
               </li>
               <li>
                 <Mail size={14} className="contact-icon" />

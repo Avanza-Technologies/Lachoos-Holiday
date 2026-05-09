@@ -67,14 +67,14 @@ const ExpertContact = () => (
 
           <div className="ec-actions">
             <a
-              href="https://wa.me/919447912456?text=Hi Rajesh! I need help planning my Kerala trip."
+              href="https://wa.me/919074885337?text=Hi Rajesh! I need help planning my Kerala trip."
               target="_blank" rel="noopener noreferrer"
               className="ec-btn-primary"
             >
               <MessageCircle size={18} /> Chat on WhatsApp
             </a>
-            <a href="tel:+919447912456" className="ec-btn-outline">
-              <Phone size={16} /> +91 94479 12456
+            <a href="tel:+919074885337" className="ec-btn-outline">
+              <Phone size={16} /> +91 90748 85337
             </a>
           </div>
         </div>

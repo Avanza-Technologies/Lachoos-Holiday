@@ -68,7 +68,7 @@ const Hero = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     const message = `Hello! I want to plan a trip to ${destination || 'Kerala'}.\nDuration: ${duration}\nTravelers: ${travelers}\nCan you provide more details?`;
-    window.open(`https://wa.me/919447912456?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   let wordIndex = 0;

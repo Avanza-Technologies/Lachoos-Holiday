@@ -4,7 +4,7 @@ import { Menu, X } from 'lucide-react';
 import './Navbar.css';
 
 const waPlanTrip =
-  'https://wa.me/919447912456?text=Hi! I want to plan a trip with Lachoos Holidays.';
+  'https://wa.me/919074885337?text=Hi! I want to plan a trip with Lachoos Holidays.';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

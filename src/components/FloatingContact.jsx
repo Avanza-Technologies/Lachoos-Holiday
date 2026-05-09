@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import './FloatingContact.css';
 
 const WA_LINK =
-  'https://wa.me/919447912456?text=' +
+  'https://wa.me/919074885337?text=' +
   encodeURIComponent('Hi Lachoos Holidays! I would like to plan a Kerala trip.');
-const CALL_LINK = 'tel:+919447912456';
+const CALL_LINK = 'tel:+919074885337';
 
 const FloatingContact = () => {
   const [visible, setVisible] = useState(false);
@@ -64,7 +64,7 @@ const FloatingContact = () => {
                   </span>
                   <span className="fc-menu-text">
                     <span className="fc-menu-label">CALL DIRECT</span>
-                    <span className="fc-menu-sub">+91 944 791 2456</span>
+                    <span className="fc-menu-sub">+91 907 488 5337</span>
                   </span>
                 </a>
               </motion.div>

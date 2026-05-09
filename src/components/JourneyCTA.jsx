@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import './JourneyCTA.css';
 
 const WA =
-  'https://wa.me/919447912456?text=' +
+  'https://wa.me/919074885337?text=' +
   encodeURIComponent(
     'Hi Lachoos Holidays! I am ready to plan my Kerala journey — please guide me.'
   );

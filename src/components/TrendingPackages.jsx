@@ -163,7 +163,7 @@ const PACKAGES = [
 
 const INITIAL_VISIBLE = 7; // 1 featured + 6 grid
 const WA_VIEW_ALL =
-  'https://wa.me/919447912456?text=' +
+  'https://wa.me/919074885337?text=' +
   encodeURIComponent(
     'Hi Lachoos Holidays! Please share your full Kerala package brochure and seasonal offers.'
   );
@@ -179,9 +179,7 @@ const cardMotion = {
 };
 
 const PackageCard = ({ pkg, featured = false, index = 0 }) => {
-  const waLink = `https://wa.me/919447912456?text=${encodeURIComponent(
-    `Hi! I want to book the ${pkg.title} package.`
-  )}`;
+  const waLink = `https://wa.me/919074885337?text=${encodeURIComponent(`Hi! I want to book the ${pkg.title} package.`)}`
 
   return (
     <motion.div

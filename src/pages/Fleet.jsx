@@ -58,7 +58,7 @@ const Fleet = () => {
   const handleWhatsApp = (e) => {
     e.preventDefault();
     const msg = `Hello! I'd like to request a vehicle quote.\nName: ${form.name}\nPhone: ${form.phone}\nRoute: ${form.route}`;
-    window.open(`https://wa.me/919447912456?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   return (
@@ -84,10 +84,10 @@ const Fleet = () => {
               Every mile of your Kerala journey — from sacred pilgrimages to honeymoon getaways — defined by luxury, safety, and local mastery.
             </motion.p>
             <motion.div variants={fadeIn} className="fl-hero-actions">
-              <a href="tel:+919447912456" className="fl-btn-primary">
+              <a href="tel:+919074885337" className="fl-btn-primary">
                 <Phone size={16} /> Call for Booking
               </a>
-              <a href="https://wa.me/919447912456" target="_blank" rel="noreferrer" className="fl-btn-outline">
+              <a href="https://wa.me/919074885337" target="_blank" rel="noreferrer" className="fl-btn-outline">
                 WhatsApp Us
               </a>
             </motion.div>

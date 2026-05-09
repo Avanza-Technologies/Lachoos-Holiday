@@ -4,7 +4,7 @@ import { Home, Heart, Phone, MessageCircle } from 'lucide-react';
 import './MobileBottomNav.css';
 
 const wa =
-  'https://wa.me/919447912456?text=' +
+  'https://wa.me/919074885337?text=' +
   encodeURIComponent('Hi Lachoos Holidays! I need help with my Kerala trip.');
 
 const MobileBottomNav = () => (
@@ -21,7 +21,7 @@ const MobileBottomNav = () => (
       <MessageCircle size={22} strokeWidth={1.75} />
       <span>WhatsApp</span>
     </a>
-    <a href="tel:+919447912456" className="mbn-item">
+    <a href="tel:+919074885337" className="mbn-item">
       <Phone size={22} strokeWidth={1.75} />
       <span>Call</span>
     </a>

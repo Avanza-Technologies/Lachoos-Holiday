@@ -82,7 +82,7 @@ const SabarimalaSection = () => (
 
         <div className="ss-actions">
           <a
-            href="https://wa.me/919447912456?text=Hello! I want to inquire about the Sabarimala specialized pilgrimage packages."
+            href="https://wa.me/919074885337?text=Hello! I want to inquire about the Sabarimala specialized pilgrimage packages."
             className="ss-btn-primary"
             target="_blank" rel="noopener noreferrer"
           >

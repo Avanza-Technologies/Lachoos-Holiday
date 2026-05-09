@@ -32,7 +32,7 @@ const Sabarimala = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const msg = `Sabarimala Pilgrimage Inquiry\nName: ${form.name}\nPhone: ${form.phone}\nTravel Date: ${form.date}\nPilgrim Count: ${form.count}\nNotes: ${form.notes}`;
-    window.open(`https://wa.me/919447912456?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
   return (
@@ -63,7 +63,7 @@ const Sabarimala = () => {
               <button className="sb-btn-primary" onClick={() => document.getElementById('sb-inquiry').scrollIntoView({ behavior: 'smooth' })}>
                 Plan My Pilgrimage <ArrowRight size={16} />
               </button>
-              <a href="tel:+919447912456" className="sb-btn-outline">
+              <a href="tel:+919074885337" className="sb-btn-outline">
                 <Phone size={16} /> Speak to an Expert
               </a>
             </motion.div>
