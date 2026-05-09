@@ -34,7 +34,7 @@ const Footer = () => {
       'Please add this email to your newsletter list: ' + trimmed
     );
     globalThis.location.href =
-      'mailto:hello@lachoosholidays.in?subject=' + subject + '&body=' + body;
+      'mailto:lachoosholidays@gmail.com?subject=' + subject + '&body=' + body;
     setEmail('');
   };
 
@@ -118,7 +118,7 @@ const Footer = () => {
                 <Phone size={16} />
               </a>
               <a
-                href="mailto:hello@lachoosholidays.in"
+                href="mailto:lachoosholidays@gmail.com"
                 aria-label="Email"
                 className="social-icon"
               >
@@ -158,7 +158,7 @@ const Footer = () => {
               </li>
               <li>
                 <Mail size={14} className="contact-icon" />
-                <a href="mailto:hello@lachoosholidays.in">hello@lachoosholidays.in</a>
+                <a href="mailto:lachoosholidays@gmail.com">lachoosholidays@gmail.com</a>
               </li>
               <li>
                 <MapPin size={14} className="contact-icon" />
