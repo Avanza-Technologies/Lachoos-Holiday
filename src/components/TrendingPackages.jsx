@@ -53,9 +53,9 @@ const PACKAGES = [
     rating: 4.9,
     badge: "EDITOR'S PICK",
     images: [
-      '/images/packages/munnar-1.jpg',
-      '/images/packages/kumarakom-1.jpg',
-      '/images/packages/munnar-2.jpg',
+      'https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1593693397690-362ad9666ec2?auto=format&fit=crop&w=1200&q=80',
+      'https://images.unsplash.com/photo-1616712134411-6b6ae89bc3ba?auto=format&fit=crop&w=1200&q=80',
       '/images/packages/kumarakom-2.jpg',
     ],
   },

@@ -52,17 +52,10 @@ const HeritageValues = () => (
       >
         <figure className="hv-figure">
           <img
-            src={pkg('kochi-2.jpg')}
-            alt="Streets of Fort Kochi capturing Kerala's heritage"
+            src="https://images.unsplash.com/photo-1590050752117-238cb0fb12b1?auto=format&fit=crop&w=1200&q=80"
+            alt="The iconic green makeup and crown of a Kathakali dancer"
             loading="lazy"
             decoding="async"
-            onError={(e) => {
-              const el = e.currentTarget;
-              if (!el.dataset.fallback) {
-                el.dataset.fallback = '1';
-                el.src = pkg('kochi-1.jpg');
-              }
-            }}
           />
           <span className="hv-figure-veil" aria-hidden="true" />
           <span className="hv-figure-seal" aria-hidden="true" />

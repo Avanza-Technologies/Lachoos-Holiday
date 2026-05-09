@@ -39,7 +39,7 @@ const packages = [
     tag: "HILL STATION",
     desc: "Wake up to the scent of fresh tea and crisp mountain air. Stay in boutique heritage estates overlooking the rolling, endless clouds of the Western Ghats.",
     price: "₹38,900",
-    img: "/images/packages/munnar-1.jpg",
+    img: "https://images.unsplash.com/photo-1616712134411-6b6ae89bc3ba?auto=format&fit=crop&w=1200&q=80",
   }
 ];
 

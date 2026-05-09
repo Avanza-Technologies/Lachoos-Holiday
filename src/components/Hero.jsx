@@ -3,7 +3,7 @@ import { MapPin, Calendar, Users, ArrowRight, Search, ShieldCheck } from 'lucide
 import { motion, useScroll, useSpring } from 'framer-motion';
 import './Hero.css';
 
-const heroImg = "/images/packages/hero-bg.jpg";
+const heroImg = "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?auto=format&fit=crop&w=2000&q=80";
 
 const titleLines = [
   ['Where', 'Emerald'],
