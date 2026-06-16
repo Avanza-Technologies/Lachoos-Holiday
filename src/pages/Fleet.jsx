@@ -188,7 +188,7 @@ const Fleet = () => {
               <p>Our fleet specialist will respond within 30 minutes.</p>
               <form onSubmit={handleWhatsApp}>
                 <input type="text" placeholder="Full Name" value={form.name} onChange={e => setForm({...form, name: e.target.value})} required />
-                {/* <input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm({...form, email: e.target.value})} /> */}
+                <input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
                 <input type="tel" placeholder="Phone Number" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} required />
                 <input type="text" placeholder="Preferred Route / Destination" value={form.route} onChange={e => setForm({...form, route: e.target.value})} />
                 <button type="submit" className="fl-submit-btn">
