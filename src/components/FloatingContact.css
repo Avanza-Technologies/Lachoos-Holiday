@@ -1,0 +1,192 @@
+/* ===== Floating Contact FAB ===== */
+
+.fc-root {
+  position: fixed;
+  right: clamp(1rem, 3vw, 1.75rem);
+  bottom: clamp(1rem, 3vw, 1.75rem);
+  z-index: 950;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.85rem;
+  pointer-events: none;
+}
+
+.fc-root > * {
+  pointer-events: auto;
+}
+
+/* === Toggle button === */
+.fc-toggle {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1.25rem 0.85rem 1.05rem;
+  background: var(--primary-green);
+  color: var(--gold);
+  border: 1px solid rgba(223, 169, 49, 0.45);
+  border-radius: 40px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 0 12px 30px rgba(8, 37, 22, 0.35),
+              0 2px 6px rgba(0, 0, 0, 0.18);
+  transition: background 0.4s var(--ease-luxe),
+              color 0.4s var(--ease-luxe),
+              transform 0.4s var(--ease-luxe),
+              box-shadow 0.4s var(--ease-luxe);
+}
+
+.fc-toggle:hover {
+  background: var(--gold);
+  color: var(--primary-green);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 18px 36px rgba(223, 169, 49, 0.32),
+              0 4px 10px rgba(0, 0, 0, 0.18);
+}
+
+.fc-toggle--open {
+  background: var(--gold);
+  color: var(--primary-green);
+  padding: 0.85rem 1.05rem;
+  border-color: var(--gold);
+}
+
+.fc-toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+}
+
+.fc-toggle-label {
+  white-space: nowrap;
+}
+
+/* Gold pulse ring */
+.fc-toggle-pulse {
+  position: absolute;
+  inset: -4px;
+  border-radius: 40px;
+  border: 1px solid rgba(223, 169, 49, 0.55);
+  pointer-events: none;
+  animation: fcPulse 2.6s ease-out infinite;
+}
+
+.fc-toggle--open .fc-toggle-pulse {
+  display: none;
+}
+
+@keyframes fcPulse {
+  0%   { transform: scale(0.96); opacity: 0.85; }
+  70%  { transform: scale(1.18); opacity: 0; }
+  100% { transform: scale(1.18); opacity: 0; }
+}
+
+/* === Menu === */
+.fc-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  background: var(--white);
+  padding: 0.55rem;
+  border-radius: 14px;
+  box-shadow: 0 28px 60px rgba(8, 37, 22, 0.28),
+              0 6px 14px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(8, 37, 22, 0.06);
+  min-width: 240px;
+}
+
+.fc-menu-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.7rem 0.85rem;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.35s var(--ease-luxe);
+}
+
+.fc-menu-item:hover {
+  background: var(--cream);
+}
+
+.fc-menu-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+}
+
+.fc-menu-item--wa .fc-menu-icon {
+  background: #25D366;
+}
+
+.fc-menu-item--call .fc-menu-icon {
+  background: var(--primary-green);
+  color: var(--gold);
+}
+
+.fc-menu-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.fc-menu-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--primary-green);
+}
+
+.fc-menu-sub {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  color: var(--text-muted, #777);
+  margin-top: 0.25rem;
+  letter-spacing: 0.01em;
+}
+
+/* === Responsive === */
+@media (max-width: 767px) {
+  .fc-root {
+    bottom: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+@media (max-width: 600px) {
+  .fc-toggle-label {
+    display: none;
+  }
+
+  .fc-toggle {
+    padding: 0.85rem;
+    width: 52px;
+    height: 52px;
+    justify-content: center;
+  }
+
+  .fc-toggle--open {
+    padding: 0.85rem;
+  }
+
+  .fc-menu {
+    min-width: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fc-toggle-pulse { animation: none; }
+}

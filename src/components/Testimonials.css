@@ -1,0 +1,257 @@
+/* ===== Testimonials — Lead Quote + Press Strip ===== */
+
+.tst-section {
+  position: relative;
+  background: var(--primary-green);
+  padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
+  overflow: hidden;
+}
+
+.tst-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('/images/packages/honeymoon-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.06;
+  z-index: 0;
+}
+
+.tst-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: var(--gold);
+  z-index: 1;
+}
+
+.tst-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.tst-header {
+  text-align: center;
+  margin-bottom: 4.5rem;
+}
+
+.tst-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.tst-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
+  color: var(--white);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.tst-heading em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+/* Grid: lead + supporting */
+.tst-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.tst-lead {
+  position: relative;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(223, 169, 49, 0.25);
+  padding: clamp(2.5rem, 4vw, 3.75rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.tst-quote-icon {
+  color: var(--gold);
+  opacity: 0.95;
+}
+
+.tst-lead-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1.2rem, 2.1vw, 1.65rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  font-weight: 400;
+  letter-spacing: 0.005em;
+}
+
+.tst-supporting {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.tst-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 2rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  transition: background 0.4s var(--ease-luxe), border-color 0.4s var(--ease-luxe);
+}
+
+.tst-card:hover {
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(223, 169, 49, 0.3);
+}
+
+.tst-text {
+  font-family: var(--font-serif);
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0;
+  flex: 1;
+  font-style: italic;
+}
+
+.tst-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--gold);
+}
+
+.tst-user {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: auto;
+}
+
+.tst-user--lead {
+  padding-top: 1.5rem;
+}
+
+.tst-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+}
+
+.tst-avatar--sm {
+  width: 44px;
+  height: 44px;
+}
+
+.tst-name {
+  display: block;
+  font-size: 1rem;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.01em;
+}
+
+.tst-location {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+}
+
+/* Press strip */
+.tst-press {
+  margin-top: clamp(4rem, 8vw, 6rem);
+  text-align: center;
+}
+
+.tst-press-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 2rem;
+}
+
+.tst-press-rule {
+  width: 36px;
+  height: 1px;
+  background: rgba(223, 169, 49, 0.5);
+}
+
+.tst-press-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 3.5rem);
+  padding: 0;
+  margin: 0;
+}
+
+.tst-press-list li {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  transition: color 0.4s var(--ease-luxe), opacity 0.4s var(--ease-luxe);
+}
+
+.tst-press-list li:hover {
+  color: var(--gold);
+  opacity: 1;
+}
+
+@media (max-width: 992px) {
+  .tst-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tst-supporting {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .tst-supporting .tst-card {
+    flex: 1 1 280px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tst-supporting {
+    flex-direction: column;
+  }
+
+  .tst-press-list {
+    gap: 1.25rem;
+  }
+
+  .tst-press-list li {
+    font-size: 0.95rem;
+  }
+}

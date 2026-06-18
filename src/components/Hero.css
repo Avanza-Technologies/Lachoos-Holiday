@@ -1,0 +1,516 @@
+/* ===== Hero — World-Class Design ===== */
+
+.hero-section {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Scroll progress hairline */
+.hero-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform-origin: 0 50%;
+  z-index: 1000;
+  will-change: transform;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: -2%;
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  will-change: transform;
+}
+
+/* Top vignette + bottom green wash + center glow */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.35) 75%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(8, 37, 22, 0.78) 0%,
+      rgba(8, 37, 22, 0.45) 28%,
+      rgba(8, 37, 22, 0.4) 55%,
+      rgba(8, 37, 22, 0.85) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  max-width: 1200px;
+  padding: clamp(7rem, 14vw, 11rem) 2rem clamp(6rem, 10vw, 8rem);
+}
+
+/* Eyebrow with side rules */
+.hero-eyebrow-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.25rem;
+}
+
+.hero-eyebrow-rule {
+  width: 36px;
+  height: 1px;
+  background: rgba(223, 169, 49, 0.6);
+}
+
+.hero-eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Stitch-style kicker — under main title */
+.hero-kicker {
+  font-family: var(--font-serif);
+  font-size: clamp(1.15rem, 2.8vw, 1.65rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.35;
+  color: var(--gold);
+  margin: -0.35rem auto 1.25rem;
+  max-width: 22ch;
+  letter-spacing: 0.01em;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Search shell — aligns with container, rounded like Stitch */
+.hero-search-shell {
+  width: 100%;
+  max-width: 1020px;
+  margin: 0 auto 3rem;
+}
+
+.hero-title {
+  font-family: "Bree Serif", serif;
+  font-size: clamp(2.25rem, 6.2vw, 4.75rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.012em;
+  margin: 0 auto 1.25rem;
+  max-width: 26ch;
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
+}
+
+.hero-title-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: baseline;
+  column-gap: 0.32em;
+  padding: 0.08em 0;
+}
+
+.hero-title-word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1.08;
+}
+
+.hero-title-word-inner {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* Subtitle */
+.hero-subtitle {
+  font-size: clamp(1rem, 2.4vw, 1.18rem);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  opacity: 0.9;
+  line-height: 1.75;
+  max-width: 38rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 300;
+  letter-spacing: 0.005em;
+}
+
+/* Search Bar — frosted glass */
+.search-bar {
+  position: relative;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr auto;
+  max-width: 1020px;
+  width: 100%;
+  margin: 0 auto;
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.5) inset,
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: var(--radius-xl);
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Gold rule above the search bar */
+.search-bar-rule {
+  position: absolute;
+  top: -22px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.85;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  padding: 1.4rem 1.75rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.07);
+  position: relative;
+  min-width: 0;
+  transition: background 0.35s var(--ease-luxe);
+}
+
+.search-field:hover {
+  background: rgba(255, 247, 230, 0.6);
+}
+
+.search-field:last-of-type {
+  border-right: none;
+}
+
+@media (min-width: 993px) {
+  .search-field:first-of-type {
+    border-radius: var(--radius-xl) 0 0 var(--radius-xl);
+  }
+}
+
+.search-icon {
+  color: var(--gold);
+  margin-right: 1rem;
+  flex-shrink: 0;
+}
+
+.search-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  flex: 1;
+  min-width: 0;
+}
+
+.search-label {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--text-muted, #888);
+  letter-spacing: 0.18em;
+  margin-bottom: 0.4rem;
+}
+
+.search-input,
+.search-select {
+  border: none;
+  background: none;
+  font-family: var(--font-sans);
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--primary-green);
+  outline: none;
+  width: 100%;
+}
+
+.search-input::placeholder {
+  color: #bbb;
+}
+
+.search-select {
+  cursor: pointer;
+  appearance: none;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  background: white;
+  border-radius: 0 0 8px 8px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.16);
+  list-style: none;
+  padding: 0.5rem 0;
+  margin: 0;
+  z-index: 100;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
+.suggestions-list li {
+  padding: 0.85rem 1.75rem;
+  color: var(--primary-green);
+  cursor: pointer;
+  transition: background 0.2s var(--ease-luxe);
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.suggestions-list li:hover {
+  background: var(--cream);
+}
+
+.search-btn {
+  background: var(--gold);
+  color: var(--primary-green);
+  border: none;
+  padding: 1.4rem 2rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: background 0.4s var(--ease-luxe), gap 0.35s var(--ease-luxe), color 0.4s var(--ease-luxe);
+  white-space: nowrap;
+  border-radius: 0 var(--radius-xl) var(--radius-xl) 0;
+}
+
+.search-btn:hover {
+  background: var(--white);
+  color: var(--primary-green);
+  gap: 1rem;
+}
+
+.search-btn-arrow {
+  transition: transform 0.4s var(--ease-luxe);
+}
+
+.search-btn:hover .search-btn-arrow {
+  transform: translateX(3px);
+}
+
+.search-btn span {
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Trust Badges */
+.hero-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.trust-num {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.trust-item span:last-child {
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  opacity: 0.78;
+  text-transform: uppercase;
+}
+
+.trust-verified {
+  flex-direction: row;
+  gap: 0.5rem;
+  color: var(--gold);
+  border: 1px solid rgba(223, 169, 49, 0.45);
+  padding: 0.5rem 0.9rem;
+  border-radius: 30px;
+  background: rgba(223, 169, 49, 0.08);
+}
+
+.trust-verified span:last-child {
+  opacity: 1;
+  color: var(--gold);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  font-size: 0.7rem;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.22);
+}
+
+/* === Slim experiences marquee anchored to hero bottom === */
+.hero-marquee {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: clamp(1.25rem, 3.5vh, 2.25rem);
+  z-index: 4;
+  padding: 0.6rem 0;
+  background: linear-gradient(to bottom,
+      rgba(8, 37, 22, 0.35) 0%,
+      rgba(8, 37, 22, 0.6) 100%);
+  backdrop-filter: blur(6px) saturate(120%);
+  -webkit-backdrop-filter: blur(6px) saturate(120%);
+  border-top: 1px solid rgba(223, 169, 49, 0.3);
+  border-bottom: 1px solid rgba(223, 169, 49, 0.18);
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 5%, #000 95%, transparent);
+}
+
+.hero-marquee-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: max-content;
+  animation: heroMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+.hero-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.85rem, 2vw, 1.5rem);
+  padding: 0 clamp(0.85rem, 2vw, 1.5rem);
+}
+
+.hero-marquee-word {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(0.85rem, 1.4vw, 1.05rem);
+  color: rgba(255, 255, 255, 0.92);
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+
+.hero-marquee-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+@keyframes heroMarquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .search-bar {
+    grid-template-columns: 1fr;
+    border-radius: var(--radius-xl);
+  }
+
+  .search-field {
+    border-right: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+  }
+
+  .search-field:first-of-type {
+    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  }
+
+  .search-btn {
+    padding: 1.25rem;
+    width: 100%;
+    justify-content: center;
+    border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  }
+
+  .hero-trust {
+    gap: 1.25rem;
+  }
+
+  .trust-divider {
+    height: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-eyebrow-rule {
+    width: 24px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+  }
+
+  .hero-trust {
+    gap: 1rem;
+  }
+
+  .trust-item {
+    gap: 0;
+  }
+
+  .trust-num {
+    font-size: 1.3rem;
+  }
+
+  .trust-divider:nth-of-type(3) {
+    display: none;
+  }
+
+  .trust-verified {
+    padding: 0.4rem 0.75rem;
+  }
+
+  .search-input,
+  .search-select {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg {
+    transform: none !important;
+  }
+
+  .hero-marquee-track {
+    animation: none;
+  }
+}
