@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Compass, Star, ArrowRight } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Honeymoon.css';
 
 const fadeIn = {
@@ -24,6 +25,7 @@ const packages = [
     desc: "A 4-day odyssey through private canals. Surrender to the gentle rhythm of the backwaters while staying in century-old ancestral homes repurposed for modern luxury.",
     price: "₹48,500",
     img: "/images/packages/honeymoon-1.jpg",
+    imgAlt: "Alleppey backwater houseboat Kerala honeymoon package",
   },
   {
     id: 2,
@@ -32,6 +34,7 @@ const packages = [
     desc: "Disconnect in the untouched highlands. Exclusive safari access, misty mornings, and private lakeside glamping designed for the adventurous, romantic soul.",
     price: "₹32,000",
     img: "/images/packages/honeymoon-2.jpg",
+    imgAlt: "Gavi eco-luxury jungle camp Kerala honeymoon",
   },
   {
     id: 3,
@@ -40,12 +43,20 @@ const packages = [
     desc: "Wake up to the scent of fresh tea and crisp mountain air. Stay in boutique heritage estates overlooking the rolling, endless clouds of the Western Ghats.",
     price: "₹38,900",
     img: "https://images.unsplash.com/photo-1616712134411-6b6ae89bc3ba?auto=format&fit=crop&w=1200&q=80",
+    imgAlt: "Munnar tea estate Kerala honeymoon hill station package",
   }
 ];
 
 const Honeymoon = () => {
   return (
     <div className="hm-page">
+      <SEO
+        title="Kerala Honeymoon Packages | Backwaters, Munnar, Gavi – Lachoos Holidays"
+        description="Romantic Kerala honeymoon packages by Lachoos Holidays. Private Alleppey backwater houseboats, Munnar tea estate stays, Gavi eco-luxury camps. Curated by local Kerala experts from Pathanamthitta."
+        keywords="Kerala honeymoon packages, Kerala honeymoon tour, Alleppey honeymoon package, Munnar honeymoon, Kerala romantic getaway, backwater honeymoon Kerala, Gavi honeymoon, Kerala couples tour, God's Own Country honeymoon, Kerala honeymoon trip"
+        path="/honeymoon"
+        image="https://lachoosholidays.com/images/packages/honeymoon-bg.jpg"
+      />
       {/* Hero Section */}
       <section className="hm-hero">
         <motion.div 
@@ -121,7 +132,7 @@ const Honeymoon = () => {
             >
               <motion.div variants={fadeIn} className="hm-pkg-image-wrapper">
                 <div className="hm-pkg-image">
-                  <img src={pkg.img} alt={pkg.title} />
+                  <img src={pkg.img} alt={pkg.imgAlt || pkg.title} loading="lazy" />
                 </div>
               </motion.div>
               <motion.div variants={fadeIn} className="hm-pkg-info">
@@ -168,7 +179,7 @@ const Honeymoon = () => {
               </div>
             </div>
             <div className="hm-phil-image">
-              <img src="/images/packages/honeymoon-3.jpg" alt="Philosophy" />
+              <img src="/images/packages/honeymoon-3.jpg" alt="Lachoos Holidays Kerala luxury honeymoon philosophy" loading="lazy" />
             </div>
           </motion.div>
         </div>

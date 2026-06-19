@@ -1,7 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Bus, Smartphone, Home, MapPin, ArrowRight, Phone } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Sabarimala.css';
+
+const sabarimalaSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristTrip',
+  name: 'Sabarimala Pilgrimage Package – Lachoos Holidays',
+  description: 'Complete Sabarimala pilgrimage package from Pathanamthitta including virtual queue booking support, AC transport to Pamba, pilgrim accommodation, and guided sacred trek assistance.',
+  url: 'https://lachoosholidays.com/sabarimala',
+  provider: {
+    '@type': 'TravelAgency',
+    name: 'Lachoos Holidays',
+    telephone: '+919074885337',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Pathanamthitta',
+      addressRegion: 'Kerala',
+      addressCountry: 'IN',
+    },
+  },
+  touristType: 'Pilgrim',
+  itinerary: {
+    '@type': 'ItemList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Arrival at Pathanamthitta & Orientation' },
+      { '@type': 'ListItem', position: 2, name: 'Journey to Pamba & Sacred Trek to Sannidhanam' },
+      { '@type': 'ListItem', position: 3, name: 'Darshan & Return Transit' },
+    ],
+  },
+};
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -54,6 +83,14 @@ const Sabarimala = () => {
 
   return (
     <div className="sb-page">
+      <SEO
+        title="Sabarimala Pilgrimage Package | Virtual Queue Booking – Lachoos Holidays"
+        description="Book your Sabarimala pilgrimage with Lachoos Holidays, Pathanamthitta. We handle virtual queue registration, AC transport to Pamba, pilgrim accommodation & guided sacred trek support. Call +91 9074885337."
+        keywords="Sabarimala pilgrimage package, Sabarimala booking, Sabarimala virtual queue, Sabarimala tour Pathanamthitta, Sabarimala darshan package, Pamba transport, Sabarimala pilgrimage Kerala, Sabarimala trip package, Sabarimala logistics"
+        path="/sabarimala"
+        image="https://lachoosholidays.com/images/packages/sabarimala-main.jpg"
+        schemaData={sabarimalaSchema}
+      />
       {/* Hero */}
       <section className="sb-hero">
         <motion.div
@@ -69,6 +106,7 @@ const Sabarimala = () => {
             muted
             playsInline
             poster="/images/packages/sabarimala-main.jpg"
+            aria-label="Sabarimala pilgrimage animation video"
           >
             <source src="/videos/Sabarimala_pilgrimage_animation_…_202606151528.mp4" type="video/mp4" />
           </video>

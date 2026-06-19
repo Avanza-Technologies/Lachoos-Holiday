@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Clock, Star } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Contact.css';
 
 const fadeIn = {
@@ -75,6 +76,12 @@ const Contact = () => {
 
   return (
     <div className="ct-page">
+      <SEO
+        title="Contact Lachoos Holidays | Kerala Tour Booking – Pathanamthitta"
+        description="Contact Lachoos Holidays for Kerala tour bookings. Call or WhatsApp +91 9074885337 to plan Sabarimala pilgrimage packages, honeymoon tours, backwater trips & more. Based in Pathanamthitta, Kerala."
+        keywords="contact Kerala travel agent, Lachoos Holidays contact, Kerala tour booking, Sabarimala tour booking, Pathanamthitta travel agent contact, Kerala holiday booking, Kerala tour inquiry, plan Kerala trip, Kerala tourism contact"
+        path="/contact"
+      />
 
       {/* Hero */}
       <section className="ct-hero">

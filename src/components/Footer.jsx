@@ -149,25 +149,26 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-col">
+          <div className="footer-col" itemScope itemType="https://schema.org/LocalBusiness">
             <h4 className="footer-heading">REACH US</h4>
-            <ul className="footer-contact">
+            <address className="footer-contact" style={{ fontStyle: 'normal' }} itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
               <li>
                 <Phone size={14} className="contact-icon" />
-                <a href="tel:+919074885337">+91 907 488 5337</a>
+                <a href="tel:+919074885337" itemProp="telephone">+91 907 488 5337</a>
               </li>
               <li>
                 <Mail size={14} className="contact-icon" />
-                <a href="mailto:lachoosholidays@gmail.com">lachoosholidays@gmail.com</a>
+                <a href="mailto:lachoosholidays@gmail.com" itemProp="email">lachoosholidays@gmail.com</a>
               </li>
               <li>
                 <MapPin size={14} className="contact-icon" />
-                <span>
-                  Pathanamthitta, Kerala<br />
+                <span itemProp="streetAddress">
+                  <span itemProp="addressLocality">Pathanamthitta</span>,{' '}
+                  <span itemProp="addressRegion">Kerala</span><br />
                   India (OPC) Pvt. Ltd.
                 </span>
               </li>
-            </ul>
+            </address>
           </div>
         </div>
 

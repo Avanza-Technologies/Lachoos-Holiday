@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Star, Wifi, Users, Luggage, Thermometer, ArrowRight, Phone } from 'lucide-react';
+import SEO from '../components/SEO';
 import './Fleet.css';
 
 const fadeIn = {
@@ -23,6 +24,7 @@ const vehicles = [
     unit: "/ day",
     desc: "The pinnacle of executive travel. Ideal for luxury honeymoon transfers and corporate visits. Includes a professional chauffeur with local expertise.",
     img: "/images/packages/fleet-1.jpg",
+    imgAlt: "Mercedes-Benz E-Class luxury sedan Kerala tour vehicle hire Pathanamthitta",
     specs: [
       { icon: <Users size={16}/>, label: "4 Passengers" },
       { icon: <Luggage size={16}/>, label: "3 Bags" },
@@ -38,6 +40,7 @@ const vehicles = [
     unit: "/ day",
     desc: "The preferred choice for Sabarimala pilgrimages and Wayanad forest retreats. Robust all-terrain performance with exceptional interior comfort.",
     img: "/images/packages/fleet-2.jpg",
+    imgAlt: "Toyota Fortuner SUV Sabarimala pilgrimage Kerala vehicle hire",
     specs: [
       { icon: <Users size={16}/>, label: "7 Passengers" },
       { icon: <Wifi size={16}/>, label: "GPS Tracked" },
@@ -63,6 +66,13 @@ const Fleet = () => {
 
   return (
     <div className="fl-page">
+      <SEO
+        title="Kerala Tour Vehicles & AC Transport | Sabarimala Pilgrimage Fleet – Lachoos Holidays"
+        description="Premium Kerala tour vehicles from Lachoos Holidays, Pathanamthitta. AC cars, SUVs & vans for Sabarimala pilgrimages, hill station tours, airport transfers & Kerala holiday transport. Book now."
+        keywords="Kerala vehicle hire, Sabarimala pilgrimage transport, Kerala tour car hire, Pathanamthitta vehicle hire, AC car Kerala, Toyota Fortuner hire Kerala, Kerala taxi package, Pamba transport, Kerala driver hire, Kerala cab booking"
+        path="/fleet"
+        image="https://lachoosholidays.com/images/packages/fleet-bg.jpg"
+      />
       {/* Hero */}
       <section className="fl-hero">
         <motion.div
@@ -148,7 +158,7 @@ const Fleet = () => {
                 variants={fadeIn}
               >
                 <div className="fl-vehicle-img">
-                  <img src={v.img} alt={v.name} />
+                  <img src={v.img} alt={v.imgAlt || v.name} loading="lazy" />
                   <span className={`fl-vehicle-tag ${v.tagClass}`}>{v.tag}</span>
                 </div>
                 <div className="fl-vehicle-info">
