@@ -1,6 +1,21 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Clock, Star } from 'lucide-react';
+
+const Instagram = ({ size = 24, color = "currentColor" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  </svg>
+);
+
+const Youtube = ({ size = 24, color = "currentColor" }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+  </svg>
+);
 import SEO from '../components/SEO';
 import './Contact.css';
 
@@ -39,14 +54,7 @@ const contactInfo = [
     action: "mailto:lachoosholidays@gmail.com",
     actionLabel: "Send Email"
   },
-  {
-    icon: <MapPin size={22} />,
-    label: "OUR OFFICE",
-    value: "Pathanamthitta, Kerala",
-    sub: "God's Own Country — India",
-    action: "https://maps.google.com/?q=Pathanamthitta,Kerala",
-    actionLabel: "Get Directions"
-  },
+
 ];
 
 const services = [
@@ -135,14 +143,15 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="ct-info-card"
                 variants={fadeIn}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -3 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
-                <div className="ct-info-icon">{item.icon}</div>
-                <span className="ct-info-label">{item.label}</span>
-                <strong className="ct-info-value">{item.value}</strong>
-                <p className="ct-info-sub">{item.sub}</p>
-                <span className="ct-info-action">{item.actionLabel} <ArrowRight size={14} /></span>
+                <div className="ct-icon-box">{item.icon}</div>
+                <div className="ct-info-content">
+                  <span className="ct-info-label">{item.label}</span>
+                  <h4 className="ct-info-title">{item.value}</h4>
+                  <p className="ct-info-desc">{item.sub}</p>
+                </div>
               </motion.a>
             ))}
           </motion.div>
@@ -198,6 +207,31 @@ const Contact = () => {
                 {sent ? '✓ Sent! Check your WhatsApp' : <>Send via WhatsApp <ArrowRight size={16} /></>}
               </button>
             </motion.form>
+
+            {/* Social Cards */}
+            <div className="ct-social-cards" style={{ marginTop: '4rem' }}>
+              <span className="ct-label dark">STAY CONNECTED</span>
+              <h3 className="ct-subheading" style={{ fontSize: '1.4rem', marginBottom: '1.5rem' }}>Follow Our Journeys</h3>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1.5rem' }}>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="ct-info-card" style={{ padding: '1.5rem' }}>
+                  <div className="ct-icon-box"><Instagram size={20} /></div>
+                  <div className="ct-info-content">
+                    <span className="ct-info-label">INSTAGRAM</span>
+                    <h4 className="ct-info-title" style={{ fontSize: '0.95rem' }}>@LachoosHolidays</h4>
+                    <p className="ct-info-desc" style={{ fontSize: '0.75rem' }}>Daily travel inspiration</p>
+                  </div>
+                </a>
+                <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="ct-info-card" style={{ padding: '1.5rem' }}>
+                  <div className="ct-icon-box"><Youtube size={20} /></div>
+                  <div className="ct-info-content">
+                    <span className="ct-info-label">YOUTUBE</span>
+                    <h4 className="ct-info-title" style={{ fontSize: '0.95rem' }}>Lachoos Holidays</h4>
+                    <p className="ct-info-desc" style={{ fontSize: '0.75rem' }}>Watch our Kerala vlogs</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
           </motion.div>
 
           {/* Sidebar Info */}
@@ -230,48 +264,23 @@ const Contact = () => {
               </div>
             </motion.div>
 
-            {/* Hours */}
-            <motion.div className="ct-hours-card" variants={fadeIn}>
-              <span className="ct-label dark">OFFICE HOURS</span>
-              <div className="ct-hours-list">
-                <div className="ct-hours-row"><span>Monday – Friday</span><strong>7:00 AM – 10:00 PM</strong></div>
-                <div className="ct-hours-row"><span>Saturday</span><strong>8:00 AM – 9:00 PM</strong></div>
-                <div className="ct-hours-row"><span>Sunday</span><strong>9:00 AM – 8:00 PM</strong></div>
+            {/* Map Card */}
+            <motion.div className="ct-map-card" variants={fadeIn}>
+              <span className="ct-label dark">FIND US</span>
+              <h3 className="ct-subheading">Rooted in Kerala's Heart</h3>
+              <p>We operate from Pathanamthitta — the gateway to Sabarimala — at the spiritual and geographical heart of Kerala.</p>
+              <div className="ct-map-embed">
+                <iframe
+                  title="Lachoos Holidays Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31624.78!2d76.787!3d9.2648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062d5e0e1e1f5d%3A0x4d8b0a2e8b6f0a8c!2sPathanamthitta%2C%20Kerala!5e0!3m2!1sen!2sin!4v1620000000000"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
-              <a
-                href="https://wa.me/919074885337"
-                target="_blank"
-                rel="noreferrer"
-                className="ct-wa-btn"
-              >
-                <MessageCircle size={18} /> Chat on WhatsApp
-              </a>
             </motion.div>
-          </motion.aside>
-        </div>
-      </section>
 
-      {/* Map Section */}
-      <section className="ct-map-section">
-        <motion.div
-          className="ct-map-header"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeIn}
-        >
-          <span className="ct-label dark">FIND US</span>
-          <h2 className="ct-heading">Rooted in Kerala's Heart</h2>
-          <p>We operate from Pathanamthitta — the gateway to Sabarimala — at the spiritual and geographical heart of Kerala.</p>
-        </motion.div>
-        <div className="ct-map-embed">
-          <iframe
-            title="Lachoos Holidays Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31624.78!2d76.787!3d9.2648!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b062d5e0e1e1f5d%3A0x4d8b0a2e8b6f0a8c!2sPathanamthitta%2C%20Kerala!5e0!3m2!1sen!2sin!4v1620000000000"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          </motion.aside>
         </div>
       </section>
 

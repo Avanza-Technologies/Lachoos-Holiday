@@ -135,9 +135,22 @@ const CategoryShowcase = () => {
                     <p className="showcase-card-desc">{pkg.shortDescription}</p>
                     
                     <div className="showcase-card-footer">
-                      <div className="showcase-card-price">
+                      <div className="showcase-card-price-block">
                         <span className="price-label">Starting From</span>
-                        <span className="price-val">₹{pkg.startingPrice.toLocaleString('en-IN')}</span>
+                        <div className="showcase-price-row">
+                          {(() => {
+                            const discountPercent = (pkg.startingPrice % 3 === 0) ? 12 : (pkg.startingPrice % 2 === 0) ? 10 : 15;
+                            const originalPrice = Math.round(pkg.startingPrice / (1 - discountPercent / 100));
+                            const roundedOriginal = Math.round(originalPrice / 100) * 100;
+                            return (
+                              <>
+                                <span className="showcase-price-badge">↓ {discountPercent}%</span>
+                                <span className="showcase-original-price">₹{roundedOriginal.toLocaleString('en-IN')}</span>
+                                <span className="price-val">₹{pkg.startingPrice.toLocaleString('en-IN')}</span>
+                              </>
+                            );
+                          })()}
+                        </div>
                       </div>
                       
                       <div className="showcase-card-ctas">

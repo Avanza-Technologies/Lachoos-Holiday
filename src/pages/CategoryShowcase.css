@@ -241,9 +241,34 @@
   gap: 16px;
 }
 
-.showcase-card-price {
+.showcase-card-price-block {
   display: flex;
   flex-direction: column;
+}
+
+.showcase-price-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.showcase-price-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: #E8F5E9; /* light green */
+  color: #0F6B3E; /* forest green */
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.showcase-original-price {
+  font-size: 0.88rem;
+  color: #888888;
+  text-decoration: line-through;
+  font-weight: 500;
 }
 
 .price-label {
