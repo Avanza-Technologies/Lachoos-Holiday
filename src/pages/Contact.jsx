@@ -54,14 +54,7 @@ const contactInfo = [
     action: "mailto:lachoosholidays@gmail.com",
     actionLabel: "Send Email"
   },
-  {
-    icon: <MapPin size={22} />,
-    label: "OUR OFFICE",
-    value: "Pathanamthitta, Kerala",
-    sub: "God's Own Country — India",
-    action: "https://maps.google.com/?q=Pathanamthitta,Kerala",
-    actionLabel: "Get Directions"
-  },
+
 ];
 
 const services = [
