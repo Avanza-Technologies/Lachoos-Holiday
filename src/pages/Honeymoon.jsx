@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Heart, Compass, Star, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';

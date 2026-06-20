@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Bus, Smartphone, Home, MapPin, ArrowRight, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getSabarimalaWhatsAppLink } from '../utils/whatsapp';
 import './Sabarimala.css';
 
 const sabarimalaSchema = {
@@ -77,8 +78,8 @@ const Sabarimala = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const msg = `Sabarimala Pilgrimage Inquiry\nName: ${form.name}\nPhone: ${form.phone}\nTravel Date: ${form.date}\nPilgrim Count: ${form.count}\nNotes: ${form.notes}`;
-    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(msg)}`, '_blank');
+    const link = getSabarimalaWhatsAppLink(form);
+    window.open(link, '_blank');
   };
 
   return (

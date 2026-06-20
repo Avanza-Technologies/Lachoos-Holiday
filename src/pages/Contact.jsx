@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, MessageCircle, ArrowRight, Clock, Star } from 'lucide-react';
 import SEO from '../components/SEO';

@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Shield, Star, Wifi, Users, Luggage, Thermometer, ArrowRight, Phone } from 'lucide-react';
 import SEO from '../components/SEO';
+import { getFleetWhatsAppLink, getFleetQuoteWhatsAppLink, getFleetAvailabilityWhatsAppLink, getFleetGeneralWhatsAppLink } from '../utils/whatsapp';
 import './Fleet.css';
 
 const fadeIn = {
@@ -18,6 +19,8 @@ const vehicles = [
   {
     id: 1,
     name: "Mercedes-Benz E-Class",
+    category: "Premium Sedan",
+    capacity: "4",
     tag: "EXPERT REVIEWED",
     tagClass: "tag-blue",
     price: "₹8,500",
@@ -34,6 +37,8 @@ const vehicles = [
   {
     id: 2,
     name: "Toyota Fortuner",
+    category: "Luxury SUV",
+    capacity: "7",
     tag: "DIRECT LIAISON",
     tagClass: "tag-amber",
     price: "₹6,200",
@@ -57,11 +62,18 @@ const guarantees = [
 
 const Fleet = () => {
   const [form, setForm] = useState({ name: '', email: '', phone: '', route: '' });
+  const [filterForm, setFilterForm] = useState({ vehicleType: 'Premium Sedan', pickupDate: '', duration: 1 });
 
-  const handleWhatsApp = (e) => {
+  const handleQuoteSubmit = (e) => {
     e.preventDefault();
-    const msg = `Hello! I'd like to request a vehicle quote.\nName: ${form.name}\nPhone: ${form.phone}\nRoute: ${form.route}`;
-    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(msg)}`, '_blank');
+    const link = getFleetQuoteWhatsAppLink(form);
+    window.open(link, '_blank');
+  };
+
+  const handleAvailabilitySubmit = (e) => {
+    e.preventDefault();
+    const link = getFleetAvailabilityWhatsAppLink(filterForm);
+    window.open(link, '_blank');
   };
 
   return (
@@ -97,7 +109,7 @@ const Fleet = () => {
               <a href="tel:+919074885337" className="fl-btn-primary">
                 <Phone size={16} /> Call for Booking
               </a>
-              <a href="https://wa.me/919074885337" target="_blank" rel="noreferrer" className="fl-btn-outline">
+              <a href={getFleetGeneralWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="fl-btn-outline">
                 WhatsApp Us
               </a>
             </motion.div>
@@ -108,23 +120,35 @@ const Fleet = () => {
       {/* Filter Bar */}
       <section className="fl-filter-bar">
         <div className="container">
-          <form className="fl-filter" onSubmit={handleWhatsApp}>
+          <form className="fl-filter" onSubmit={handleAvailabilitySubmit}>
             <div className="fl-filter-item">
               <label>VEHICLE TYPE</label>
-              <select>
-                <option>Premium Sedan</option>
-                <option>Luxury SUV</option>
-                <option>Minivan</option>
-                <option>Coach Bus</option>
+              <select
+                value={filterForm.vehicleType}
+                onChange={e => setFilterForm({ ...filterForm, vehicleType: e.target.value })}
+              >
+                <option value="Premium Sedan">Premium Sedan</option>
+                <option value="Luxury SUV">Luxury SUV</option>
+                <option value="Minivan">Minivan</option>
+                <option value="Coach Bus">Coach Bus</option>
               </select>
             </div>
             <div className="fl-filter-item">
               <label>PICK-UP DATE</label>
-              <input type="date" />
+              <input
+                type="date"
+                value={filterForm.pickupDate}
+                onChange={e => setFilterForm({ ...filterForm, pickupDate: e.target.value })}
+              />
             </div>
             <div className="fl-filter-item">
               <label>DURATION (DAYS)</label>
-              <input type="number" defaultValue={1} min={1} />
+              <input
+                type="number"
+                min={1}
+                value={filterForm.duration}
+                onChange={e => setFilterForm({ ...filterForm, duration: parseInt(e.target.value) || 1 })}
+              />
             </div>
             <button type="submit" className="fl-filter-btn">
               Check Availability <ArrowRight size={16} />
@@ -148,7 +172,7 @@ const Fleet = () => {
               <motion.h2 variants={fadeIn} className="fl-heading">Our Premium Fleet</motion.h2>
             </motion.div>
 
-            {vehicles.map((v, i) => (
+            {vehicles.map((v) => (
               <motion.div
                 key={v.id}
                 className="fl-vehicle-card"
@@ -177,7 +201,14 @@ const Fleet = () => {
                       <span className="fl-price-from">Starting From</span>
                       <span className="fl-price-amount">{v.price}<small>{v.unit}</small></span>
                     </div>
-                    <button className="fl-reserve-btn">Reserve Now</button>
+                    <a
+                      href={getFleetWhatsAppLink(v)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="fl-reserve-btn"
+                    >
+                      Reserve Now
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -196,7 +227,7 @@ const Fleet = () => {
               <span className="fl-label dark">INSTANT QUOTE</span>
               <h3>Request a Premium Quote</h3>
               <p>Our fleet specialist will respond within 30 minutes.</p>
-              <form onSubmit={handleWhatsApp}>
+              <form onSubmit={handleQuoteSubmit}>
                 <input type="text" placeholder="Full Name" value={form.name} onChange={e => setForm({...form, name: e.target.value})} required />
                 <input type="email" placeholder="Email Address" value={form.email} onChange={e => setForm({...form, email: e.target.value})} />
                 <input type="tel" placeholder="Phone Number" value={form.phone} onChange={e => setForm({...form, phone: e.target.value})} required />

@@ -317,6 +317,141 @@
   max-width: 40ch;
 }
 
+/* --- 3D Cylinder Carousel (Desktop/Tablet) --- */
+.hv-cylinder-wrapper {
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.hv-cylinder-container {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  perspective-origin: 50% 50%;
+  overflow: visible;
+  transform-style: preserve-3d; /* Enable 3D depth-sorting with siblings */
+}
+
+/* 3D Floor Shadow underneath the hovering cylinder */
+.hv-cylinder-container::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 380px;
+  height: 30px;
+  background: radial-gradient(ellipse at center, rgba(8, 37, 22, 0.28) 0%, rgba(8, 37, 22, 0.08) 45%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(2px);
+}
+
+.hv-cylinder {
+  position: relative;
+  width: 180px;
+  height: 252px;
+  transform-style: preserve-3d;
+  animation: hv-rotate-cylinder 28s linear infinite;
+  will-change: transform;
+}
+
+/* Pause animation on hover */
+.hv-cylinder-container:hover .hv-cylinder {
+  animation-play-state: paused;
+}
+
+@keyframes hv-rotate-cylinder {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(-360deg);
+  }
+}
+
+.hv-cylinder-card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+}
+
+.hv-cylinder-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(223, 169, 49, 0.45);
+  box-shadow: 0 15px 35px rgba(8, 37, 22, 0.26);
+  background: var(--primary-green);
+  transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.hv-cylinder-card-inner:hover {
+  border-color: var(--gold);
+  box-shadow: 0 18px 45px rgba(223, 169, 49, 0.38);
+}
+
+.hv-cylinder-card-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hv-cylinder-card-inner:hover img {
+  transform: scale(1.1);
+}
+
+.hv-cylinder-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(8, 37, 22, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.hv-cylinder-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Mobile/Tablet Responsive Scaling for Cylinder --- */
+@media (max-width: 767px) {
+  .hv-cylinder-container {
+    transform: scale(0.82);
+    height: 290px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hv-cylinder-container {
+    transform: scale(0.68);
+    height: 240px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
 /* === Responsive === */
 @media (max-width: 920px) {
   .hv-grid {
@@ -386,3 +521,103 @@
     padding-left: 0;
   }
 }
+
+/* --- Premium 3D Glass Water Reflection Effect --- */
+.hv-cylinder-card-reflect {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 6px;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  pointer-events: none; /* Ignore interactions */
+  
+  /* Vertical flip transform with table alignment */
+  transform-origin: top;
+  
+  /* Visual styling: opacity, blur, brightness */
+  opacity: 0.16;
+  filter: blur(4px) brightness(0.65);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), filter 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  
+  /* Gradient fade masking to fade out reflection gradually */
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+  
+  /* Slow subtle water ripple shimmer */
+  animation: hv-water-ripple 8s ease-in-out infinite;
+}
+
+.hv-cylinder-card-reflect img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Sibling highlights when the parent card is hovered */
+.hv-cylinder-card-inner:hover + .hv-cylinder-card-reflect {
+  opacity: 0.28;
+  filter: blur(2px) brightness(0.85);
+}
+
+.hv-cylinder-card-inner:hover + .hv-cylinder-card-reflect img {
+  transform: scale(1.1);
+}
+
+@keyframes hv-water-ripple {
+  0%, 100% {
+    transform: scaleY(-1) skewX(0deg) scaleX(1);
+  }
+  50% {
+    transform: scaleY(-1) skewX(1.5deg) scaleX(1.02);
+  }
+}
+
+/* --- Center Golden Branding Text Axis --- */
+.hv-cylinder-center-text {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0px); /* Centered in X, Y, and Z=0 */
+  transform-style: preserve-3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; /* Make it non-clickable */
+  text-align: center;
+  font-family: var(--font-serif);
+  line-height: 1.05;
+  z-index: 2;
+}
+
+.hv-center-brand {
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  /* Premium golden gradient text effect */
+  background: linear-gradient(135deg, #ffe082 0%, var(--gold) 50%, #b28900 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  filter: drop-shadow(0 2px 4px rgba(8, 37, 22, 0.4)) drop-shadow(0 0 12px rgba(223, 169, 49, 0.35));
+}
+
+.hv-center-subbrand {
+  font-family: var(--font-sans);
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  margin-top: 2px;
+  filter: drop-shadow(0 1px 2px rgba(8, 37, 22, 0.4));
+}
+

@@ -1,0 +1,80 @@
+.qsh-section {
+  padding: 30px 0;
+  background-color: #f7faf7;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+  z-index: 10;
+}
+
+.qsh-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.qsh-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.qsh-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(15, 107, 62, 0.08);
+  border-color: #e8f5e9;
+}
+
+.qsh-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #e8f5e9;
+  color: #0F6B3E;
+  flex-shrink: 0;
+}
+
+.qsh-icon {
+  stroke-width: 2px;
+}
+
+.qsh-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.qsh-card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 4px;
+}
+
+.qsh-card-desc {
+  font-size: 0.82rem;
+  color: #666666;
+  margin: 0;
+}
+
+/* Tablet view (768px and up) */
+@media (min-width: 768px) {
+  .qsh-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .qsh-section {
+    padding: 40px 0;
+  }
+}

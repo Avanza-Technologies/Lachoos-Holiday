@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Mail, MapPin, Phone, MessageCircle, ArrowUp } from 'lucide-react';
 import './Footer.css';
@@ -6,7 +6,7 @@ import './Footer.css';
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/sabarimala', label: 'Sabarimala Pilgrimage' },
-  { to: '/honeymoon', label: 'Honeymoon Special' },
+  { to: '/packages/honeymoon', label: 'Honeymoon Special' },
   { to: '/fleet', label: 'Vehicle Fleet' },
   { to: '/contact', label: 'Contact' },
 ];

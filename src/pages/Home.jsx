@@ -1,12 +1,15 @@
 import SEO from '../components/SEO';
 import Hero from '../components/Hero';
+import QuickServiceHighlights from '../components/QuickServiceHighlights';
 import HeritageValues from '../components/HeritageValues';
+import PackageCategoriesGrid from '../components/PackageCategoriesGrid';
+import FeaturedPackages from '../components/FeaturedPackages';
+import WhyChoose from '../components/WhyChoose';
 import Destinations from '../components/Destinations';
 import SignatureExperiences from '../components/SignatureExperiences';
-import TrendingPackages from '../components/TrendingPackages';
-import Testimonials from '../components/Testimonials';
-import JourneyCTA from '../components/JourneyCTA';
 import SabarimalaSection from '../components/SabarimalaSection';
+import FleetHighlight from '../components/FleetHighlight';
+import Testimonials from '../components/Testimonials';
 import ExpertContact from '../components/ExpertContact';
 
 const Home = () => (
@@ -18,13 +21,16 @@ const Home = () => (
       path="/"
     />
     <Hero />
+    <QuickServiceHighlights />
     <HeritageValues />
+    <PackageCategoriesGrid />
+    <FeaturedPackages />
+    <WhyChoose />
     <Destinations />
     <SignatureExperiences />
-    <TrendingPackages />
-    <Testimonials />
-    <JourneyCTA />
     <SabarimalaSection />
+    <FleetHighlight />
+    <Testimonials />
     <ExpertContact />
   </>
 );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { MapPin, Calendar, Users, ArrowRight, Search, ShieldCheck } from 'lucide-react';
 import { motion, useScroll, useSpring } from 'framer-motion';
 import './Hero.css';
