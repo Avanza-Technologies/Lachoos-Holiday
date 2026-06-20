@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
@@ -46,7 +46,7 @@ const MosaicCard = ({ dest, i }) => {
     >
       <div className="dest-img-wrap">
         <motion.div className="dest-img-parallax" style={{ y }}>
-          <img src={dest.img} alt={dest.title} className="dest-img" />
+          <img src={dest.img} alt={dest.imgAlt || dest.title} className="dest-img" loading="lazy" />
         </motion.div>
         <div className="dest-gradient" />
 
@@ -86,6 +86,7 @@ const destinations = [
     tag: 'EXPERT VERIFIED',
     desc: 'Drift through time on a private vessel where the only schedule is the setting sun.',
     img: '/images/packages/kumarakom-1.jpg',
+    imgAlt: 'Alleppey backwaters Kerala houseboat cruise private tour package',
     size: 'main',
     location: 'Alappuzha, Kerala'
   },
@@ -93,7 +94,8 @@ const destinations = [
     title: 'Munnar Tea Estates',
     tag: 'HILL STATION',
     desc: 'Exclusive stays in sprawling emerald hills in the heart of Kerala high ranges.',
-    img: '/images/packages/munnar-1.jpg',
+    img: '/images/packages/munnarTeaEstate-2.jpg',
+    imgAlt: 'Munnar tea estate green hills Kerala hill station holiday package',
     size: 'side',
     location: 'Idukki, Kerala'
   },
@@ -101,7 +103,8 @@ const destinations = [
     title: 'Wayanad Wilderness',
     tag: 'ECO-LUXURY',
     desc: 'Rediscover silence in curated luxury jungle lodges where nature meets bespoke comfort.',
-    img: '/images/packages/wayanad-1.jpg',
+    img: '/images/packages/wayanad-3.jpg',
+    imgAlt: 'Wayanad wilderness eco-luxury jungle lodge Kerala nature tour package',
     size: 'wide',
     location: 'Wayanad, Kerala'
   },

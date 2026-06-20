@@ -1,0 +1,50 @@
+/* Responsive utilities for Lachoos Holiday - mobile-first */
+:root{
+  --bp-sm:640px;--bp-md:900px;--bp-lg:1200px;--site-max-width:1200px;--space-sm:0.5rem;--space-md:1rem;--space-lg:1.5rem
+}
+
+/* Fluid base type for better scaling */
+html{font-size:clamp(14px,1.1vw+12px,18px)}
+
+/* Improve tap targets on touch devices */
+button,.btn,a.btn{min-height:44px;min-width:44px}
+
+/* Layout helpers (mobile-first) */
+.row{display:flex;flex-wrap:wrap;gap:var(--space-md);align-items:stretch}
+.col{flex:1 1 100%;min-width:0}
+@media(min-width:var(--bp-sm)){.col-sm-6{flex:1 1 calc(50% - var(--space-md))}}
+@media(min-width:var(--bp-md)){
+  .col-md-4{flex:1 1 calc(33.333% - var(--space-md))}
+  .col-md-6{flex:1 1 calc(50% - var(--space-md))}
+}
+@media(min-width:var(--bp-lg)){.col-lg-3{flex:1 1 calc(25% - var(--space-md))}}
+
+/* Ensure containers respect safe areas and stay centered */
+.container{max-width:var(--site-max-width);padding-left:max(clamp(1rem,4vw,2rem),env(safe-area-inset-left));padding-right:max(clamp(1rem,4vw,2rem),env(safe-area-inset-right));margin-left:auto;margin-right:auto;box-sizing:border-box}
+
+/* Responsive media defaults */
+.responsive-media,img,picture,video{width:100%;height:auto;display:block;object-fit:cover}
+.media-contain{object-fit:contain}
+
+/* Utility helpers */
+.visually-hidden{position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px,1px,1px,1px);white-space:nowrap}
+.text-center{text-align:center}
+.mt-1{margin-top:var(--space-sm)}.mt-2{margin-top:var(--space-md)}.mt-3{margin-top:var(--space-lg)}
+.p-1{padding:var(--space-sm)}.p-2{padding:var(--space-md)}.p-3{padding:var(--space-lg)}
+
+/* Hide/show helpers */
+.hide-mobile{display:none!important}.show-mobile{display:block!important}
+@media(min-width:var(--bp-sm)){
+  .hide-mobile{display:initial!important}
+  .show-mobile{display:none!important}
+}
+
+/* Form control sizing */
+input,select,textarea{font-size:1rem;min-height:44px}
+
+/* Small and very large viewport tweaks */
+@media(max-width:400px){.section-padding{padding-left:1rem;padding-right:1rem}}
+@media(min-width:1600px){.container{max-width:1400px}}
+
+/* Respect reduced motion */
+@media(prefers-reduced-motion:reduce){.row,.col,.container{transition:none!important}}

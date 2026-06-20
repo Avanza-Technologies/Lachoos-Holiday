@@ -5,37 +5,45 @@ import './HeritageValues.css';
 
 const tags = ['Ancient traditions', 'Festivals', 'Artisanship'];
 
-const reasons = [
+const memories = [
   {
-    n: '01',
-    title: 'Trusted Local Expertise',
-    desc: 'Pathanamthitta-based; we know every hidden trail and local secret.',
+    img: '/images/packages/honeymoon-2.jpg',
+    tag: 'Honeymoons',
+    alt: 'Happy couple in Kerala tea gardens'
   },
   {
-    n: '02',
-    title: 'Premium Hospitality',
-    desc: 'Hand-picked hotels and houseboats that meet our luxury standards.',
+    img: '/images/packages/sabarimala.jpg',
+    tag: 'Pilgrimages',
+    alt: 'Sabarimala pilgrimage group'
   },
   {
-    n: '03',
-    title: '24/7 Direct Support',
-    desc: 'No call centres. A dedicated travel specialist, available any hour.',
+    img: '/images/packages/BackwaterWithBoat.jpg',
+    tag: 'Houseboats',
+    alt: 'Alleppey backwaters traditional houseboat'
   },
   {
-    n: '04',
-    title: 'Tailor-Made Itineraries',
-    desc: 'Every journey is unique. We architect your trip around your desires.',
+    img: '/images/packages/wayanad.jpg',
+    tag: 'Hill Stations',
+    alt: 'Scenic Wayanad hills view'
   },
+  {
+    img: '/images/packages/fleet-2.jpg',
+    tag: 'Premium Fleet',
+    alt: 'Toyota Fortuner luxury SUV transfer'
+  },
+  {
+    img: '/images/packages/Fort_kochi.jpg',
+    tag: 'Group Tours',
+    alt: 'Historic Fort Kochi group tour'
+  }
 ];
 
-const pkg = (name) => `${import.meta.env.BASE_URL}images/packages/${name}`;
-
 const fadeUp = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 15 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, delay: 0.05 + i * 0.07, ease: [0.22, 1, 0.36, 1] },
+    transition: { duration: 0.6, delay: 0.05 + i * 0.08, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -101,9 +109,9 @@ const HeritageValues = () => (
         <span className="hv-divider-line" />
       </span>
 
-      {/* === RIGHT — Our Values === */}
+      {/* === RIGHT — Memories & Moments === */}
       <motion.article
-        className="hv-col hv-col--values"
+        className="hv-col hv-col--memories"
         initial={{ opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: '-70px' }}
@@ -111,39 +119,58 @@ const HeritageValues = () => (
       >
         <span className="hv-eyebrow">
           <span className="hv-eyebrow-rule" aria-hidden="true" />
-          OUR VALUES
+          MEMORIES &amp; MOMENTS
         </span>
 
         <h2 className="hv-title">
-          Why guests choose <em>Lachoos&nbsp;Holidays</em>
+          Moments We <em>Cherish</em>
         </h2>
 
         <p className="hv-lead">
-          We are more than a travel agency &mdash; we are your personal Kerala
-          specialists, accountable at every step of the journey.
+          Every smile, every journey, and every sacred pilgrimage is a memory we cherish. Over the years, we have helped thousands of families, couples, and pilgrims experience the true warmth and beauty of South India.
         </p>
 
-        <ul className="hv-list">
-          {reasons.map((item, i) => (
-            <motion.li
-              key={item.n}
-              className="hv-row"
-              custom={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-50px' }}
-              variants={fadeUp}
-            >
-              <span className="hv-row-num" aria-hidden="true">
-                {item.n}
-              </span>
-              <div className="hv-row-body">
-                <h3 className="hv-row-title">{item.title}</h3>
-                <p className="hv-row-desc">{item.desc}</p>
-              </div>
-            </motion.li>
-          ))}
-        </ul>
+        {/* Desktop/Tablet 3D Rotating Cylinder */}
+        <div className="hv-cylinder-wrapper">
+          <div className="hv-cylinder-container">
+            {/* Static Central Golden Text Axis */}
+            <div className="hv-cylinder-center-text" aria-hidden="true">
+              <span className="hv-center-brand">Lachoos</span>
+              <span className="hv-center-subbrand">Holidays</span>
+            </div>
+
+            <div className="hv-cylinder">
+              {memories.map((m, i) => (
+                <div
+                  key={i}
+                  className="hv-cylinder-card"
+                  style={{
+                    transform: `rotateY(${i * 60}deg) translateZ(190px)`
+                  }}
+                >
+                  <motion.div
+                    className="hv-cylinder-card-inner"
+                    custom={i}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: '-50px' }}
+                    variants={fadeUp}
+                  >
+                    <img src={m.img} alt={m.alt} loading="lazy" />
+                    <div className="hv-cylinder-overlay">
+                      <span className="hv-cylinder-tag">{m.tag}</span>
+                    </div>
+                  </motion.div>
+
+                  {/* 3D Reflection Layer */}
+                  <div className="hv-cylinder-card-reflect" aria-hidden="true">
+                    <img src={m.img} alt={m.alt} loading="lazy" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </motion.article>
     </div>
   </section>

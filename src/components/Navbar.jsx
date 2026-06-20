@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import './Navbar.css';
@@ -20,10 +20,6 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    setMenuOpen(false);
-  }, [location.pathname]);
-
-  useEffect(() => {
     if (!menuOpen) return undefined;
     const prev = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
@@ -35,10 +31,12 @@ const Navbar = () => {
   const navLinkClass = (path) =>
     `nav-link ${location.pathname === path ? 'active' : ''}`;
 
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-container">
-        <Link to="/" className="nav-logo">
+        <Link to="/" className="nav-logo" onClick={closeMenu}>
           <span className="nav-logo-mark" aria-hidden="true">L</span>
           <span className="nav-logo-text">
             <span className="nav-logo-name">Lachoos</span>
@@ -63,19 +61,19 @@ const Navbar = () => {
           aria-hidden={!menuOpen}
         >
           <div className="nav-links">
-            <Link to="/" className={navLinkClass('/')}>
+            <Link to="/" className={navLinkClass('/')} onClick={closeMenu}>
               Home
             </Link>
-            <Link to="/sabarimala" className={navLinkClass('/sabarimala')}>
+            <Link to="/sabarimala" className={navLinkClass('/sabarimala')} onClick={closeMenu}>
               Sabarimala Pilgrimage
             </Link>
-            <Link to="/honeymoon" className={navLinkClass('/honeymoon')}>
+            <Link to="/packages/honeymoon" className={navLinkClass('/packages/honeymoon')} onClick={closeMenu}>
               Honeymoon Special
             </Link>
-            <Link to="/fleet" className={navLinkClass('/fleet')}>
+            <Link to="/fleet" className={navLinkClass('/fleet')} onClick={closeMenu}>
               Vehicle Fleet
             </Link>
-            <Link to="/contact" className={navLinkClass('/contact')}>
+            <Link to="/contact" className={navLinkClass('/contact')} onClick={closeMenu}>
               Contact Us
             </Link>
           </div>
@@ -84,6 +82,7 @@ const Navbar = () => {
             className="btn btn-gold nav-btn nav-btn--mobile"
             target="_blank"
             rel="noopener noreferrer"
+            onClick={closeMenu}
             style={{ textDecoration: 'none' }}
           >
             PLAN YOUR TRIP

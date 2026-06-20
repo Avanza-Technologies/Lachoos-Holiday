@@ -1,7 +1,37 @@
-import React, { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Bus, Smartphone, Home, MapPin, ArrowRight, Phone } from 'lucide-react';
+import SEO from '../components/SEO';
+import { getSabarimalaWhatsAppLink } from '../utils/whatsapp';
 import './Sabarimala.css';
+
+const sabarimalaSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'TouristTrip',
+  name: 'Sabarimala Pilgrimage Package – Lachoos Holidays',
+  description: 'Complete Sabarimala pilgrimage package from Pathanamthitta including virtual queue booking support, AC transport to Pamba, pilgrim accommodation, and guided sacred trek assistance.',
+  url: 'https://lachoosholidays.com/sabarimala',
+  provider: {
+    '@type': 'TravelAgency',
+    name: 'Lachoos Holidays',
+    telephone: '+919074885337',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Pathanamthitta',
+      addressRegion: 'Kerala',
+      addressCountry: 'IN',
+    },
+  },
+  touristType: 'Pilgrim',
+  itinerary: {
+    '@type': 'ItemList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Arrival at Pathanamthitta & Orientation' },
+      { '@type': 'ListItem', position: 2, name: 'Journey to Pamba & Sacred Trek to Sannidhanam' },
+      { '@type': 'ListItem', position: 3, name: 'Darshan & Return Transit' },
+    ],
+  },
+};
 
 const fadeIn = {
   hidden: { opacity: 0, y: 40 },
@@ -28,24 +58,60 @@ const steps = [
 
 const Sabarimala = () => {
   const [form, setForm] = useState({ name: '', phone: '', date: '', count: '', notes: '' });
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.currentTime = 1;
+    
+    const handleTimeUpdate = () => {
+      if (video.currentTime >= 4) {
+        video.pause();
+      }
+    };
+
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    return () => video.removeEventListener('timeupdate', handleTimeUpdate);
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const msg = `Sabarimala Pilgrimage Inquiry\nName: ${form.name}\nPhone: ${form.phone}\nTravel Date: ${form.date}\nPilgrim Count: ${form.count}\nNotes: ${form.notes}`;
-    window.open(`https://wa.me/919074885337?text=${encodeURIComponent(msg)}`, '_blank');
+    const link = getSabarimalaWhatsAppLink(form);
+    window.open(link, '_blank');
   };
 
   return (
     <div className="sb-page">
+      <SEO
+        title="Sabarimala Pilgrimage Package | Virtual Queue Booking – Lachoos Holidays"
+        description="Book your Sabarimala pilgrimage with Lachoos Holidays, Pathanamthitta. We handle virtual queue registration, AC transport to Pamba, pilgrim accommodation & guided sacred trek support. Call +91 9074885337."
+        keywords="Sabarimala pilgrimage package, Sabarimala booking, Sabarimala virtual queue, Sabarimala tour Pathanamthitta, Sabarimala darshan package, Pamba transport, Sabarimala pilgrimage Kerala, Sabarimala trip package, Sabarimala logistics"
+        path="/sabarimala"
+        image="https://lachoosholidays.com/images/packages/sabarimala-main.jpg"
+        schemaData={sabarimalaSchema}
+      />
       {/* Hero */}
       <section className="sb-hero">
         <motion.div
-          className="sb-hero-bg"
+          className="sb-hero-video-wrapper"
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 12, ease: "easeOut" }}
-          style={{ backgroundImage: `url('/images/packages/sabarimala-main.jpg')` }}
-        />
+        >
+          <video
+            ref={videoRef}
+            className="sb-hero-video"
+            autoPlay
+            muted
+            playsInline
+            poster="/images/packages/sabarimala-main.jpg"
+            aria-label="Sabarimala pilgrimage animation video"
+          >
+            <source src="/videos/Sabarimala_pilgrimage_animation_…_202606151528.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
         <div className="sb-hero-overlay" />
         <div className="container sb-hero-content">
           <motion.div

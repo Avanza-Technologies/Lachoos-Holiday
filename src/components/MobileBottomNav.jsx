@@ -1,4 +1,3 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Home, Heart, Phone, MessageCircle } from 'lucide-react';
 import './MobileBottomNav.css';
@@ -13,7 +12,7 @@ const MobileBottomNav = () => (
       <Home size={22} strokeWidth={1.75} />
       <span>Home</span>
     </NavLink>
-    <NavLink to="/honeymoon" className={({ isActive }) => `mbn-item${isActive ? ' mbn-item--active' : ''}`}>
+    <NavLink to="/packages/honeymoon" className={({ isActive }) => `mbn-item${isActive ? ' mbn-item--active' : ''}`}>
       <Heart size={22} strokeWidth={1.75} />
       <span>Honeymoon</span>
     </NavLink>

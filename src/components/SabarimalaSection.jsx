@@ -1,7 +1,7 @@
-import React from 'react';
 import { Clock, Navigation, Home as HomeIcon, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { getSabarimalaWhatsAppLink } from '../utils/whatsapp';
 import './SabarimalaSection.css';
 
 const features = [
@@ -44,7 +44,7 @@ const SabarimalaSection = () => (
             <div className="ss-seal-core">
               <span className="ss-seal-core-line">SPIRITUAL</span>
               <span className="ss-seal-core-mark">&#10047;</span>
-              <span className="ss-seal-core-line">PACKAGES</span>
+              <span className="ss-seal-core-line">SERVICES</span>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@ const SabarimalaSection = () => (
       >
         <span className="ss-label">SPIRITUAL SANCTUARY</span>
         <h2 className="ss-heading">
-          Sabarimala<br /><em>Specialized Packages.</em>
+          Specialized<br /><em>Sabarimala Services.</em>
         </h2>
         <span className="ss-rule" aria-hidden="true" />
 
@@ -82,7 +82,7 @@ const SabarimalaSection = () => (
 
         <div className="ss-actions">
           <a
-            href="https://wa.me/919074885337?text=Hello! I want to inquire about the Sabarimala specialized pilgrimage packages."
+            href={getSabarimalaWhatsAppLink()}
             className="ss-btn-primary"
             target="_blank" rel="noopener noreferrer"
           >

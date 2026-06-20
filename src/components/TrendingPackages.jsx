@@ -3,7 +3,7 @@ import { Star, Clock, MapPin, ArrowRight } from 'lucide-react';
 import './TrendingPackages.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const AnimatedImage = ({ images, title }) => {
+const AnimatedImage = ({ images, title, altText }) => {
   const isArray = Array.isArray(images);
   const [index, setIndex] = useState(0);
 
@@ -16,7 +16,7 @@ const AnimatedImage = ({ images, title }) => {
   }, [isArray, images]);
 
   if (!isArray) {
-    return <img src={images} alt={title} loading="lazy" />;
+    return <img src={images} alt={altText || title} loading="lazy" />;
   }
 
   return (
@@ -25,7 +25,7 @@ const AnimatedImage = ({ images, title }) => {
         <motion.img
           key={images[index]}
           src={images[index]}
-          alt={title}
+          alt={altText || title}
           initial={{ opacity: 0, scale: 1.08 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.97 }}
@@ -52,6 +52,7 @@ const PACKAGES = [
     price: '₹18,500',
     rating: 4.9,
     badge: "EDITOR'S PICK",
+    altText: 'Misty Munnar tea estates and Alleppey backwater houseboat Kerala tour package',
     images: [
       'https://images.unsplash.com/photo-1590490359854-dfba19688d70?auto=format&fit=crop&w=1200&q=80',
       'https://images.unsplash.com/photo-1593693397690-362ad9666ec2?auto=format&fit=crop&w=1200&q=80',
@@ -66,6 +67,7 @@ const PACKAGES = [
     price: '₹15,200',
     rating: 4.8,
     badge: 'BESTSELLER',
+    altText: 'Wayanad jungle eco-lodge Kerala wildlife expedition tour package',
     images: [
       '/images/packages/wayanad-1.jpg',
       '/images/packages/wayanad-2.jpg',
@@ -78,6 +80,7 @@ const PACKAGES = [
     location: 'Kochi, Athirappilly',
     price: '₹12,800',
     rating: 4.7,
+    altText: 'Kochi heritage fort and Athirappilly waterfall Kerala tour package',
     images: [
       '/images/packages/kochi-1.jpg',
       '/images/packages/kochi-2.jpg',
@@ -91,6 +94,7 @@ const PACKAGES = [
     price: '₹21,400',
     rating: 4.9,
     badge: 'BESTSELLER',
+    altText: 'Kumarakom backwater houseboat cruise Kerala holiday package Alleppey',
     images: [
       '/images/packages/kumarakom-1.jpg',
       '/images/packages/kumarakom-2.jpg',
@@ -103,6 +107,7 @@ const PACKAGES = [
     location: 'Thekkady, Periyar',
     price: '₹16,900',
     rating: 4.8,
+    altText: 'Thekkady Periyar wildlife safari spice plantation Kerala tour package',
     images: [
       '/images/packages/thekkady-1.jpg',
       '/images/packages/thekkady-2.jpg',
@@ -116,6 +121,7 @@ const PACKAGES = [
     price: '₹19,600',
     rating: 4.7,
     badge: 'NEW',
+    altText: 'Varkala cliff beach Ayurveda wellness Kerala holiday package Kovalam',
     images: [
       '/images/packages/varkala-1.jpg',
       '/images/packages/varkala-2.jpg',
@@ -128,6 +134,7 @@ const PACKAGES = [
     location: 'Kasaragod, Bekal',
     price: '₹17,300',
     rating: 4.6,
+    altText: 'Bekal Fort coastal Kerala travel package Kasaragod Nileshwaram',
     images: [
       '/images/packages/bekal-1.jpg',
       '/images/packages/bekal-2.jpg',
@@ -141,6 +148,7 @@ const PACKAGES = [
     price: '₹14,500',
     rating: 4.8,
     badge: 'NEW',
+    altText: 'Gavi eco trail jungle camp Pathanamthitta Kerala wildlife tour',
     images: [
       '/images/packages/gavi-1.jpg',
       '/images/packages/gavi-2.jpg',
@@ -153,6 +161,7 @@ const PACKAGES = [
     location: 'Pathanamthitta, Pamba',
     price: '₹13,900',
     rating: 4.9,
+    altText: 'Sabarimala pilgrimage comfort package Pathanamthitta Pamba darshan tour',
     images: [
       '/images/packages/sabarimala-1.jpg',
       '/images/packages/sabarimala-2.jpg',
@@ -192,7 +201,7 @@ const PackageCard = ({ pkg, featured = false, index = 0 }) => {
       layout
     >
       <div className="pkg-image">
-        <AnimatedImage images={pkg.images || pkg.image} title={pkg.title} />
+        <AnimatedImage images={pkg.images || pkg.image} title={pkg.title} altText={pkg.altText} />
         {pkg.badge && (
           <span className={`pkg-badge ${featured ? 'pkg-badge--gold' : ''}`}>
             {pkg.badge}
