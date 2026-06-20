@@ -10,16 +10,16 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
 .qsh-card {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 20px;
   background: #ffffff;
-  padding: 20px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #e5e5e5;
   text-decoration: none;
@@ -75,6 +75,6 @@
   }
   
   .qsh-section {
-    padding: 40px 0;
+    padding: 20px 0;
   }
 }

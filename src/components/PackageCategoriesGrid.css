@@ -41,27 +41,105 @@
   line-height: 1.6;
 }
 
-.categories-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 30px;
+/* Carousel Container (Relative boundary for absolute arrows) */
+.categories-carousel-container {
+  position: relative;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
 
+/* Navigation Arrow Controls */
+.category-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: transparent; /* No fill inside */
+  color: #DFA931; /* Golden arrow */
+  border: 2px solid #DFA931; /* Golden border */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(223, 169, 49, 0.12); /* Soft premium shadow */
+  z-index: 10;
+  outline: none;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.category-nav-arrow:hover {
+  background-color: rgba(223, 169, 49, 0.08); /* Subtle transparent gold tint on hover */
+  box-shadow: 0 6px 18px rgba(223, 169, 49, 0.3); /* Glow effect */
+}
+
+.category-nav-arrow.left-arrow {
+  left: -24px;
+}
+
+.category-nav-arrow.right-arrow {
+  right: -24px;
+}
+
+/* Disable navigation arrows on smaller mobile/tablet screens */
+@media (max-width: 1023px) {
+  .category-nav-arrow {
+    display: none !important;
+  }
+}
+
+/* Horizontal track container */
+.categories-grid-wrapper {
+  width: 100%;
+  position: relative;
+  overflow: visible; /* standard overflow for swiping on touch devices */
+}
+
+.categories-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 30px;
+  max-width: 100%;
+  margin: 0;
+  padding-bottom: 24px; /* Space for scrollbar and shadow */
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: #DFA931 transparent;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Custom Webkit scrollbar styling for mobile/tablet */
+.categories-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.categories-grid::-webkit-scrollbar-track {
+  background: rgba(15, 107, 62, 0.05);
+  border-radius: 10px;
+}
+.categories-grid::-webkit-scrollbar-thumb {
+  background: #DFA931; /* gold */
+  border-radius: 10px;
+  transition: background-color 0.2s ease;
+}
+.categories-grid::-webkit-scrollbar-thumb:hover {
+  background: #c59223;
+}
+
 /* Category Card Styling */
 .category-card {
+  flex: 0 0 290px; /* responsive width for mobile */
+  scroll-snap-align: start;
   background: #ffffff;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  transition: box-shadow 0.3s ease;
   border: 1px solid #e5e5e5;
   height: 100%;
-}
-
-.category-card:hover {
-  box-shadow: 0 12px 30px rgba(15, 107, 62, 0.12);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .category-card-inner {
@@ -82,7 +160,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .category-card:hover .category-image {
@@ -154,14 +232,10 @@
   transform: translateX(4px);
 }
 
-/* Responsive Breakpoints */
-
-/* Mobile view (default) is 1 column */
-
 /* Tablet view (768px and up) */
 @media (min-width: 768px) {
-  .categories-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .category-card {
+    flex: 0 0 350px; /* larger card width on tablet/desktop */
   }
   
   .categories-section {
@@ -169,17 +243,39 @@
   }
 }
 
-/* Desktop view (1024px and up) */
+/* Desktop view (1024px and up) - Enable premium scroll-driven horizontal storytelling */
 @media (min-width: 1024px) {
-  .categories-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
   .categories-section {
     padding: 100px 0;
   }
   
   .categories-title {
     font-size: 3rem;
+  }
+
+  /* Clip horizontal track to container width, provide padding for active card lift + shadow */
+  .categories-grid-wrapper {
+    overflow: hidden;
+    padding: 40px 0;
+    margin: -40px 0;
+    perspective: 1200px;
+    transform-style: preserve-3d;
+  }
+
+  /* Horizontal track configuration, disable default scrolling/scrollbars */
+  .categories-grid {
+    overflow-x: visible;
+    width: max-content;
+    padding-bottom: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .categories-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .category-card {
+    box-shadow: none; /* controlled dynamically by Framer Motion shadowOpacity */
   }
 }

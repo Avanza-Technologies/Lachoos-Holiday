@@ -11,6 +11,10 @@ const PackageDetails = () => {
   // Find the package matching the slug (packageId parameter)
   const pkg = ALL_PACKAGES.find(p => p.slug === packageId && p.category === categorySlug);
 
+  const discountPercent = pkg ? ((pkg.startingPrice % 3 === 0) ? 12 : (pkg.startingPrice % 2 === 0) ? 10 : 15) : 0;
+  const originalPrice = pkg ? Math.round(pkg.startingPrice / (1 - discountPercent / 100)) : 0;
+  const roundedOriginal = pkg ? Math.round(originalPrice / 100) * 100 : 0;
+
   if (!pkg) {
     return (
       <div className="details-error container text-center section-padding">
@@ -150,8 +154,14 @@ const PackageDetails = () => {
               <div className="booking-card-header">
                 <span className="booking-price-label">GUIDE PRICE</span>
                 <div className="booking-price-wrap">
-                  <span className="booking-price-val">₹{pkg.startingPrice.toLocaleString('en-IN')}</span>
-                  <span className="booking-price-unit">/ per person</span>
+                  <div className="details-price-discount-block">
+                    <span className="details-original-price">₹{roundedOriginal.toLocaleString('en-IN')}</span>
+                    <span className="details-price-badge">↓ {discountPercent}% OFF</span>
+                  </div>
+                  <div className="details-price-final-row">
+                    <span className="booking-price-val">₹{pkg.startingPrice.toLocaleString('en-IN')}</span>
+                    <span className="booking-price-unit">/ per person</span>
+                  </div>
                 </div>
                 <p className="booking-price-disclaimer">Starting price based on budget hotel stays & sedan transport. Rates vary based on hotel tier choices, peak season, and occupancy.</p>
               </div>
