@@ -98,7 +98,7 @@ const Contact = () => {
           initial={{ scale: 1.08 }}
           animate={{ scale: 1 }}
           transition={{ duration: 14, ease: "easeOut" }}
-          style={{ backgroundImage: `url('/images/packages/hero-bg.jpg')` }}
+          style={{ backgroundImage: `url('/images/packages/contact-cover.png')` }}
         />
         <div className="ct-hero-overlay" />
         <div className="container ct-hero-content">
