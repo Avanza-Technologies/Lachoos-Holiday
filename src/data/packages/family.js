@@ -31,7 +31,7 @@ export const familyPackages = [
     shortDescription: "Exciting wildlife safari, spice plantation walks, and bamboo rafting in Thekkady for the family.",
     duration: "4 Days / 3 Nights",
     startingPrice: 18999,
-    coverImage: "/images/packages/tiger-periyar.jpeg",
+    coverImage: "/images/packages/tiger.jpg",
     destinations: ["Thekkady", "Vagamon"],
     highlights: ["Periyar Lake Boat Safari", "Spice Plantation Walk", "Vagamon Pine Forest Walk"],
     inclusions: ["3-Star Hotel Stays", "Breakfast Included", "Periyar Boat Tickets", "Private Cab Service"],
