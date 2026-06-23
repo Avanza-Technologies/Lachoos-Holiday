@@ -7,7 +7,7 @@ export const familyPackages = [
     shortDescription: "A comprehensive family tour covering Kochi heritage, Munnar hills, and Alleppey backwaters.",
     duration: "6 Days / 5 Nights",
     startingPrice: 24500,
-    coverImage: "/images/packages/munnar-alleppey.jpg",
+    coverImage: "/images/packages/Family-kochi.jpg",
     destinations: ["Kochi", "Munnar", "Alleppey"],
     highlights: ["Fort Kochi Sightseeing", "Eravikulam National Park", "Alleppey Backwater Day Cruise"],
     inclusions: ["Family Room Stays", "Daily Breakfast", "Sightseeing Cab & Driver", "Airport Pickup & Drop"],
