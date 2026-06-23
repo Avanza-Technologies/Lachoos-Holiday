@@ -19,7 +19,7 @@ export const CATEGORIES_CONFIG = {
     slug: 'honeymoon',
     name: 'Honeymoon Packages',
     shortDescription: 'Romantic journeys crafted for unforgettable memories in premium destinations.',
-    coverImage: '/images/packages/honeymoon-bg.jpg',
+    coverImage: '/images/packages/HoneymoonImg1.jpg',
     packages: honeymoonPackages
   },
   family: {
