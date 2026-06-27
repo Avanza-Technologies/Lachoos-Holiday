@@ -157,9 +157,6 @@ const HeritageValues = () => (
                     variants={fadeUp}
                   >
                     <img src={m.img} alt={m.alt} loading="lazy" />
-                    <div className="hv-cylinder-overlay">
-                      <span className="hv-cylinder-tag">{m.tag}</span>
-                    </div>
                   </motion.div>
 
                   {/* 3D Reflection Layer */}

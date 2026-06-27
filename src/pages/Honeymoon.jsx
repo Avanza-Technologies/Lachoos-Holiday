@@ -54,7 +54,7 @@ const Honeymoon = () => {
         description="Romantic Kerala honeymoon packages by Lachoos Holidays. Private Alleppey backwater houseboats, Munnar tea estate stays, Gavi eco-luxury camps. Curated by local Kerala experts from Pathanamthitta."
         keywords="Kerala honeymoon packages, Kerala honeymoon tour, Alleppey honeymoon package, Munnar honeymoon, Kerala romantic getaway, backwater honeymoon Kerala, Gavi honeymoon, Kerala couples tour, God's Own Country honeymoon, Kerala honeymoon trip"
         path="/honeymoon"
-        image="https://lachoosholidays.com/images/packages/honeymoon-bg.jpg"
+        image="https://lachoosholidays.com/images/packages/HoneymoonImg2.jpg"
       />
       {/* Hero Section */}
       <section className="hm-hero">
@@ -63,7 +63,7 @@ const Honeymoon = () => {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 10, ease: "easeOut" }}
-          style={{ backgroundImage: `url('/images/packages/honeymoon-bg.jpg')` }}
+          style={{ backgroundImage: `url('/images/packages/HoneymoonImg2.jpg')` }}
         />
         <div className="hm-hero-overlay"></div>
         <div className="container hm-hero-content">

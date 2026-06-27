@@ -19,21 +19,21 @@ export const CATEGORIES_CONFIG = {
     slug: 'honeymoon',
     name: 'Honeymoon Packages',
     shortDescription: 'Romantic journeys crafted for unforgettable memories in premium destinations.',
-    coverImage: '/images/packages/honeymoon-bg.jpg',
+    coverImage: '/images/packages/HoneymoonImg1.jpg',
     packages: honeymoonPackages
   },
   family: {
     slug: 'family',
     name: 'Family Vacation Packages',
     shortDescription: 'Reliable, comfortable, and fun-filled itineraries designed for families of all sizes.',
-    coverImage: '/images/packages/munnar-alleppey.jpg',
+    coverImage: '/images/packages/Family-cover.jpg',
     packages: familyPackages
   },
   pilgrimage: {
     slug: 'pilgrimage',
     name: 'Pilgrimage Packages',
     shortDescription: 'Stress-free schedules, dedicated transport, and local guidance for spiritual temple tours.',
-    coverImage: '/images/packages/sabarimala.jpg',
+    coverImage: '/images/packages/pilgrim-cover.jpg',
     packages: pilgrimagePackages
   },
   summer: {
