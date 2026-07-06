@@ -48,7 +48,7 @@ export const honeymoonPackages = [
     shortDescription: "An exquisite combination of Munnar mountains and Alleppey backwaters.",
     duration: "5 Days / 4 Nights",
     startingPrice: 28999,
-    coverImage: "/images/packages/honeymoon-bg.jpg",
+    coverImage: "/images/packages/honeymoon-premium.jpg",
     destinations: ["Munnar", "Alleppey"],
     highlights: ["Munnar Tea Valley Sightseeing", "Premium Alleppey Houseboat Stay", "Ayurvedic Couple Spa Session"],
     inclusions: ["3 Nights Premium Resort in Munnar", "1 Night Luxury Houseboat in Alleppey", "Breakfast & Dinner at Resort", "All Meals in Houseboat", "Private Airport Pickup & Drop"],

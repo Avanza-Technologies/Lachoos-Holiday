@@ -26,7 +26,7 @@ const vehicles = [
     price: "₹8,500",
     unit: "/ day",
     desc: "The pinnacle of executive travel. Ideal for luxury honeymoon transfers and corporate visits. Includes a professional chauffeur with local expertise.",
-    img: "/images/packages/fleet-1.jpg",
+    img: "/images/packages/fleet-benz-eclass.jpg",
     imgAlt: "Mercedes-Benz E-Class luxury sedan Kerala tour vehicle hire Pathanamthitta",
     specs: [
       { icon: <Users size={16}/>, label: "4 Passengers" },
@@ -44,7 +44,7 @@ const vehicles = [
     price: "₹6,200",
     unit: "/ day",
     desc: "The preferred choice for Sabarimala pilgrimages and Wayanad forest retreats. Robust all-terrain performance with exceptional interior comfort.",
-    img: "/images/packages/fleet-2.jpg",
+    img: "/images/packages/fleet-fortuner.jpg",
     imgAlt: "Toyota Fortuner SUV Sabarimala pilgrimage Kerala vehicle hire",
     specs: [
       { icon: <Users size={16}/>, label: "7 Passengers" },

@@ -7,12 +7,12 @@ const tags = ['Ancient traditions', 'Festivals', 'Artisanship'];
 
 const memories = [
   {
-    img: '/images/packages/honeymoon-2.jpg',
+    img: '/images/packages/honeymoon-circle.jpg',
     tag: 'Honeymoons',
     alt: 'Happy couple in Kerala tea gardens'
   },
   {
-    img: '/images/packages/sabarimala.jpg',
+    img: '/images/packages/pilgrim-cover.jpg',
     tag: 'Pilgrimages',
     alt: 'Sabarimala pilgrimage group'
   },
@@ -27,7 +27,7 @@ const memories = [
     alt: 'Scenic Wayanad hills view'
   },
   {
-    img: '/images/packages/fleet-2.jpg',
+    img: '/images/packages/fleet-circle.jpg',
     tag: 'Premium Fleet',
     alt: 'Toyota Fortuner luxury SUV transfer'
   },
