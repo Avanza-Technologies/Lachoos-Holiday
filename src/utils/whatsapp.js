@@ -11,7 +11,7 @@ I am highly interested in the following travel package:
 - Itinerary Package: ${pkg.name}
 - Category Niche: ${pkg.category}
 - Duration Track: ${pkg.duration}
-- Price Guideline: Starting From ₹${pkg.startingPrice.toLocaleString('en-IN')}
+- Package Tier: Budget Friendly Package
 - Source Context Link: ${currentUrl}
 
 Please share complete package details and verify seasonal availability.

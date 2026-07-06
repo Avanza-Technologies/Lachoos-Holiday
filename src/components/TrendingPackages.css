@@ -208,7 +208,7 @@
 .pkg-footer {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   padding-top: 1.1rem;
   border-top: 1px solid var(--rule);
   margin-top: auto;
@@ -217,31 +217,7 @@
 
 .pkg-price {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.35rem;
-}
-
-.pkg-price .from {
-  font-size: 0.65rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  font-weight: 700;
-}
-
-.pkg-price .amount {
-  font-family: var(--font-serif);
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--primary-green);
-  letter-spacing: -0.005em;
-}
-
-.pkg-price .per {
-  font-size: 0.7rem;
-  color: var(--text-muted);
-  letter-spacing: 0.04em;
+  align-items: center;
 }
 
 .pkg-btn {

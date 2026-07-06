@@ -1,13 +1,58 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Clock, MapPin, ArrowRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Clock, MapPin, ArrowRight, Info } from 'lucide-react';
 import { ALL_PACKAGES } from '../data/packages';
 import './FeaturedPackages.css';
 
 // Session-level flags to ensure animation runs only on hard refresh or first view
 let hasEnteredViewport = false;
 let hasAnimated = false;
+
+// Helper component for budget badge with info popover
+export const BudgetBadgeWithTooltip = () => {
+  const [showTooltip, setShowTooltip] = useState(false);
+
+  return (
+    <div 
+      className="budget-badge-container"
+      onMouseLeave={() => setShowTooltip(false)}
+    >
+      <span className="featured-pkg-budget-badge">
+        #Budget Package
+        <button
+          type="button"
+          className="budget-tooltip-trigger"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            setShowTooltip((prev) => !prev);
+          }}
+          aria-label="What is a budget package?"
+        >
+          <Info size={13} />
+        </button>
+      </span>
+
+      <AnimatePresence>
+        {showTooltip && (
+          <motion.div
+            className="budget-tooltip-content"
+            initial={{ opacity: 0, y: 6, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 6, scale: 0.95 }}
+            transition={{ duration: 0.18, ease: "easeOut" }}
+          >
+            <h4 className="budget-tooltip-title">Budget Friendly Tourism</h4>
+            <p className="budget-tooltip-desc">
+              Customizable, cost-effective travel itineraries designed to deliver excellent sightseeing, comfortable stays, and transit options at highly affordable, pocket-friendly rates.
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 const FeaturedPackages = () => {
   // Get packages where featured is true, limited to 3 items
@@ -62,48 +107,7 @@ const FeaturedPackages = () => {
 
                 <div className="featured-pkg-footer">
                   <div className="featured-pkg-price-block">
-                    <span className="featured-price-label">Starting From</span>
-                    {(() => {
-                      const discountPercent = (pkg.startingPrice % 3 === 0) ? 12 : (pkg.startingPrice % 2 === 0) ? 10 : 15;
-                      const originalPrice = Math.round(pkg.startingPrice / (1 - discountPercent / 100));
-                      const roundedOriginal = Math.round(originalPrice / 100) * 100;
-                      return (
-                        <>
-                          <div className="featured-price-discount-row">
-                            <span className="featured-original-price-wrap">
-                              ₹{roundedOriginal.toLocaleString('en-IN')}
-                              <motion.span
-                                className="price-strike-line"
-                                initial={{ width: hasAnimated ? "100%" : "0%" }}
-                                whileInView={{ width: "100%" }}
-                                viewport={{ once: true }}
-                                transition={hasAnimated ? { duration: 0 } : { delay: 0.5, duration: 0.4, ease: "easeInOut" }}
-                              />
-                            </span>
-                            <motion.span
-                              className="featured-price-badge"
-                              initial={{ opacity: hasAnimated ? 1 : 0, x: hasAnimated ? 0 : -6 }}
-                              whileInView={{ opacity: 1, x: 0 }}
-                              viewport={{ once: true }}
-                              transition={hasAnimated ? { duration: 0 } : { delay: 0.8, duration: 0.3 }}
-                            >
-                              ↓ {discountPercent}%
-                            </motion.span>
-                          </div>
-                          <div className="featured-price-final-row">
-                            <motion.span
-                              className="featured-price-val"
-                              initial={{ opacity: hasAnimated ? 1 : 0, scale: hasAnimated ? 1 : 0.85, y: hasAnimated ? 0 : 5 }}
-                              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-                              viewport={{ once: true }}
-                              transition={hasAnimated ? { duration: 0 } : { delay: 0.9, duration: 0.35, ease: "easeOut" }}
-                            >
-                              ₹{pkg.startingPrice.toLocaleString('en-IN')}
-                            </motion.span>
-                          </div>
-                        </>
-                      );
-                    })()}
+                    <BudgetBadgeWithTooltip hasAnimated={hasAnimated} />
                   </div>
 
                   <div className="featured-pkg-actions">

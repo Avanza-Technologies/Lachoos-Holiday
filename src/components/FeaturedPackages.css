@@ -130,7 +130,7 @@
 
 .featured-pkg-footer {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   border-top: 1px solid #e5e5e5;
   padding-top: 14px;
@@ -139,76 +139,8 @@
 
 .featured-pkg-price-block {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.featured-price-label {
-  font-size: 0.7rem;
-  color: #888888;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 4px;
-}
-
-/* Staggered double-row pricing layout */
-.featured-price-discount-row {
-  display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 4px;
 }
-
-.featured-original-price-wrap {
-  position: relative;
-  display: inline-block;
-  font-size: 0.85rem;
-  color: #888888;
-  font-weight: 500;
-  line-height: 1;
-}
-
-/* Dynamic absolute gold strike line */
-.price-strike-line {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  height: 1.5px;
-  background-color: var(--gold, #DFA931);
-  transform: translateY(-50%);
-  display: block;
-}
-
-.featured-price-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 1px;
-  background-color: #E8F5E9; /* light green */
-  color: #0F6B3E; /* forest green */
-  padding: 2px 5px;
-  border-radius: 4px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.price-drop-arrow {
-  font-size: 0.75rem;
-}
-
-.featured-price-final-row {
-  display: flex;
-  align-items: baseline;
-  line-height: 1;
-}
-
-.featured-price-val {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1a1a1a;
-  display: inline-block;
-}
-
 .featured-pkg-actions {
   display: flex;
   align-items: center;

@@ -63,8 +63,8 @@ const FleetHighlight = () => {
 
                 <div className="fleet-highlight-footer">
                   <div className="fleet-highlight-price">
-                    <span className="fleet-price-label">Starting From</span>
-                    <span className="fleet-price-val">{vehicle.price}<small>{vehicle.unit}</small></span>
+                    <span className="fleet-price-label">Service Type</span>
+                    <span className="fleet-price-val" style={{ fontSize: '0.95rem', fontWeight: 600, color: '#0F6B3E' }}>Chauffeur Driven</span>
                   </div>
                   <Link to="/fleet" className="btn-fleet-view">
                     Reserve <ArrowRight size={14} />

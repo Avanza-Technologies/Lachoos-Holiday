@@ -4,16 +4,13 @@ import SEO from '../components/SEO';
 import { ALL_PACKAGES } from '../data/packages';
 import { getPackageWhatsAppLink, getGeneralWhatsAppLink } from '../utils/whatsapp';
 import './PackageDetails.css';
+import { BudgetBadgeWithTooltip } from '../components/FeaturedPackages';
 
 const PackageDetails = () => {
   const { categorySlug, packageId } = useParams();
 
   // Find the package matching the slug (packageId parameter)
   const pkg = ALL_PACKAGES.find(p => p.slug === packageId && p.category === categorySlug);
-
-  const discountPercent = pkg ? ((pkg.startingPrice % 3 === 0) ? 12 : (pkg.startingPrice % 2 === 0) ? 10 : 15) : 0;
-  const originalPrice = pkg ? Math.round(pkg.startingPrice / (1 - discountPercent / 100)) : 0;
-  const roundedOriginal = pkg ? Math.round(originalPrice / 100) * 100 : 0;
 
   if (!pkg) {
     return (
@@ -152,18 +149,11 @@ const PackageDetails = () => {
           <aside className="details-sidebar">
             <div className="booking-sticky-card">
               <div className="booking-card-header">
-                <span className="booking-price-label">GUIDE PRICE</span>
-                <div className="booking-price-wrap">
-                  <div className="details-price-discount-block">
-                    <span className="details-original-price">₹{roundedOriginal.toLocaleString('en-IN')}</span>
-                    <span className="details-price-badge">↓ {discountPercent}% OFF</span>
-                  </div>
-                  <div className="details-price-final-row">
-                    <span className="booking-price-val">₹{pkg.startingPrice.toLocaleString('en-IN')}</span>
-                    <span className="booking-price-unit">/ per person</span>
-                  </div>
+                <span className="booking-price-label">PACKAGE CATEGORY</span>
+                <div style={{ marginTop: '8px', marginBottom: '8px' }}>
+                  <BudgetBadgeWithTooltip hasAnimated={false} />
                 </div>
-                <p className="booking-price-disclaimer">Starting price based on budget hotel stays & sedan transport. Rates vary based on hotel tier choices, peak season, and occupancy.</p>
+                <p className="booking-price-disclaimer">This is a customizable, budget-friendly holiday itinerary. Speak directly with our travel experts to get custom quotes tailored to your chosen hotels, transport options, and travel dates.</p>
               </div>
 
               <div className="booking-card-actions">
@@ -190,8 +180,8 @@ const PackageDetails = () => {
 
               <div className="booking-card-footer">
                 <div className="assurance-badge">
-                  <span className="assurance-title">🔒 Transparent Pricing</span>
-                  <p className="assurance-desc">No hidden transaction charges. Speak directly to our travel experts for tailored quotes.</p>
+                  <span className="assurance-title">🔒 Custom Quotes</span>
+                  <p className="assurance-desc">No hidden booking charges. Speak directly to our travel experts for tailored quotes matching your preferences.</p>
                 </div>
               </div>
             </div>

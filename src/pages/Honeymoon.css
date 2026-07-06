@@ -265,7 +265,7 @@
 
 .hm-pkg-action {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
   border-top: 1px solid rgba(8, 37, 22, 0.1);
   padding-top: 2rem;
@@ -273,21 +273,7 @@
 
 .hm-pkg-price {
   display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-
-.hm-pkg-price .label {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.hm-pkg-price .amount {
-  font-family: var(--font-serif, "Playfair Display", Georgia, serif);
-  font-size: 2rem;
-  color: var(--primary-green);
+  align-items: center;
 }
 
 .hm-btn-outline {

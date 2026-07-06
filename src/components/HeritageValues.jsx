@@ -22,7 +22,7 @@ const memories = [
     alt: 'Alleppey backwaters traditional houseboat'
   },
   {
-    img: '/images/packages/wayanad.jpg',
+    img: '/images/packages/wayanad-1.jpg',
     tag: 'Hill Stations',
     alt: 'Scenic Wayanad hills view'
   },
