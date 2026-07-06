@@ -7,7 +7,7 @@ const lead = {
   location: 'Bangalore',
   stars: 5,
   text: 'Lachoos Holidays made our honeymoon truly magical. Every detail \u2014 from the orchid-strewn houseboat in Alleppey to the moonlit dinner at the tea estate \u2014 felt thought through. They are not booking trips, they are composing memories.',
-  image: '/images/packages/t1.jpg',
+  image: '/images/packages/person-2.png',
 };
 
 const supporting = [
@@ -16,14 +16,14 @@ const supporting = [
     location: 'London',
     stars: 5,
     text: 'The Sabarimala pilgrimage was so well-organized. As a first-timer, I felt safe and respected throughout. Expert guidance indeed.',
-    image: '/images/packages/t2.jpg',
+    image: '/images/packages/person-1.png',
   },
   {
     name: 'Suresh Pillai',
     location: 'Chennai',
     stars: 5,
     text: 'Best vehicle fleet in Pathanamthitta. The driver was professional and knew the forest routes perfectly. Unforgettable.',
-    image: '/images/packages/t3.jpg',
+    image: '/images/packages/person-3.png',
   },
 ];
 

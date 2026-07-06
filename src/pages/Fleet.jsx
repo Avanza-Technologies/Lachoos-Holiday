@@ -198,8 +198,8 @@ const Fleet = () => {
                   </div>
                   <div className="fl-vehicle-footer">
                     <div className="fl-price">
-                      <span className="fl-price-from">Starting From</span>
-                      <span className="fl-price-amount">{v.price}<small>{v.unit}</small></span>
+                      <span className="fl-price-from">Service Type</span>
+                      <span className="fl-price-amount">Chauffeur Driven</span>
                     </div>
                     <a
                       href={getFleetWhatsAppLink(v)}

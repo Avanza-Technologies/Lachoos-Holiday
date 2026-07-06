@@ -237,57 +237,7 @@
   margin-bottom: 4px;
 }
 
-.booking-price-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-bottom: 12px;
-}
-
-.details-price-discount-block {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 4px;
-}
-
-.details-original-price {
-  font-size: 1.05rem;
-  color: #888888;
-  text-decoration: line-through;
-  font-weight: 500;
-}
-
-.details-price-badge {
-  display: inline-flex;
-  align-items: center;
-  background-color: #E8F5E9; /* light green */
-  color: #0F6B3E; /* forest green */
-  padding: 3px 6px;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 700;
-  line-height: 1;
-}
-
-.details-price-final-row {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.booking-price-val {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: #0F6B3E;
-  line-height: 1;
-}
-
-.booking-price-unit {
-  font-size: 0.9rem;
-  color: #666666;
-  font-weight: 500;
-}
+/* Price wrap and amounts removed */
 
 .booking-price-disclaimer {
   font-size: 0.78rem;

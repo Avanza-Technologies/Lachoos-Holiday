@@ -283,3 +283,100 @@ button:focus-visible {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Reusable Budget Badge & Tooltip styles */
+.budget-badge-container {
+  position: relative;
+  display: inline-block;
+}
+
+.featured-pkg-budget-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0F6B3E; /* Lachoos forest green */
+  background-color: rgba(15, 107, 62, 0.08); /* light green background tint */
+  border: 1px solid rgba(15, 107, 62, 0.25);
+  padding: 5px 10px 5px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.budget-tooltip-trigger {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #0F6B3E;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  outline: none;
+}
+
+.budget-tooltip-trigger:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.budget-tooltip-content {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  width: 250px;
+  background-color: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  padding: 12px 14px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  z-index: 100; /* High z-index to overlay nicely */
+  text-align: left;
+}
+
+.budget-tooltip-content::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 20px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: #ffffff transparent transparent transparent;
+}
+
+.budget-tooltip-content::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 19px;
+  border-width: 7px;
+  border-style: solid;
+  border-color: #e5e5e5 transparent transparent transparent;
+  z-index: -1;
+}
+
+.budget-tooltip-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-top: 0;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.budget-tooltip-desc {
+  font-size: 0.76rem;
+  color: #555555;
+  line-height: 1.4;
+  margin: 0;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: normal;
+}

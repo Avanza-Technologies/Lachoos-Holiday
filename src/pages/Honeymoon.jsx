@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Heart, Compass, Star, ArrowRight } from 'lucide-react';
 import SEO from '../components/SEO';
 import './Honeymoon.css';
+import { BudgetBadgeWithTooltip } from '../components/FeaturedPackages';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 30 },
@@ -139,9 +140,8 @@ const Honeymoon = () => {
                 <h3 className="hm-pkg-title">{pkg.title}</h3>
                 <p className="hm-pkg-desc">{pkg.desc}</p>
                 <div className="hm-pkg-action">
-                  <div className="hm-pkg-price">
-                    <span className="label">Starting From</span>
-                    <span className="amount">{pkg.price}</span>
+                  <div className="hm-pkg-price" style={{ display: 'flex', alignItems: 'center' }}>
+                    <BudgetBadgeWithTooltip hasAnimated={false} />
                   </div>
                   <button className="hm-btn-outline">View Itinerary</button>
                 </div>

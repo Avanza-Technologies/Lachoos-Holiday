@@ -40,7 +40,7 @@ export const CATEGORIES_CONFIG = {
     slug: 'summer',
     name: 'Summer Vacation Packages',
     shortDescription: 'Cool mountain escapes and refreshing lake stays to beat the summer heat.',
-    coverImage: '/images/packages/MunnarMist_1.jpg',
+    coverImage: '/images/packages/Category-Summer.jpg',
     packages: summerPackages
   },
   adventure: {
@@ -54,7 +54,7 @@ export const CATEGORIES_CONFIG = {
     slug: 'group',
     name: 'Group Tours',
     shortDescription: 'Perfect group outings, college tours, and team-building corporate retreats.',
-    coverImage: '/images/packages/Fort_kochi.jpg',
+    coverImage: '/images/packages/Category-GroupTour.jpg',
     packages: groupToursPackages
   }
 };

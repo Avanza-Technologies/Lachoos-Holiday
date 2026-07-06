@@ -22,7 +22,7 @@ const SabarimalaSection = () => (
         transition={{ duration: 0.9, ease: "easeOut" }}
       >
         <div className="ss-image-wrapper">
-          <img src="/images/packages/sabarimala-main.jpg" alt="Sabarimala Temple" />
+          <img src="/images/packages/Sabarimala-2.jpg" alt="Sabarimala Temple" />
 
           {/* Circular gold seal */}
           <div className="ss-seal" aria-hidden="true">

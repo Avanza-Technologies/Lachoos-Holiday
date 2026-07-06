@@ -2,6 +2,7 @@ import React, { useMemo, useState } from 'react';
 import { Star, Clock, MapPin, ArrowRight } from 'lucide-react';
 import './TrendingPackages.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import { BudgetBadgeWithTooltip } from './FeaturedPackages';
 
 const AnimatedImage = ({ images, title, altText }) => {
   const isArray = Array.isArray(images);
@@ -224,10 +225,8 @@ const PackageCard = ({ pkg, featured = false, index = 0 }) => {
           </p>
         )}
         <div className="pkg-footer">
-          <div className="pkg-price">
-            <span className="from">From</span>
-            <span className="amount">{pkg.price}</span>
-            <span className="per">/ per person</span>
+          <div className="pkg-price" style={{ display: 'flex', alignItems: 'center' }}>
+            <BudgetBadgeWithTooltip hasAnimated={false} />
           </div>
           <a
             href={waLink}
